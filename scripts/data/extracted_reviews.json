@@ -1,0 +1,75 @@
+{
+  "google_rating": 4.9,
+  "reviews": [
+    {
+      "name": "Mohan Tiwari",
+      "date": "11:43 01 Feb 25",
+      "link": "https://www.google.com/maps/contrib/115180007873607368573/reviews",
+      "text": "",
+      "rating": 5
+    },
+    {
+      "name": "Pragya Tripathi",
+      "date": "15:05 29 Jan 25",
+      "link": "https://www.google.com/maps/contrib/102705421172198950395/reviews",
+      "text": "",
+      "rating": 5
+    },
+    {
+      "name": "Suneha Rajput",
+      "date": "15:36 26 Jan 25",
+      "link": "https://www.google.com/maps/contrib/111205555677844202686/reviews",
+      "text": "",
+      "rating": 5
+    },
+    {
+      "name": "Arun Kashyap",
+      "date": "10:50 26 Jan 25",
+      "link": "https://www.google.com/maps/contrib/107692525227092693469/reviews",
+      "text": "",
+      "rating": 5
+    },
+    {
+      "name": "Shrishti Yadav",
+      "date": "10:49 26 Jan 25",
+      "link": "https://www.google.com/maps/contrib/107302228968288524628/reviews",
+      "text": "",
+      "rating": 5
+    },
+    {
+      "name": "Arpana Arora",
+      "date": "14:09 18 Jan 25",
+      "link": "https://www.google.com/maps/contrib/105828449730971117496/reviews",
+      "text": "",
+      "rating": 5
+    },
+    {
+      "name": "shubham khatter",
+      "date": "13:08 30 Oct 24",
+      "link": "https://www.google.com/maps/contrib/110313599183740291102/reviews",
+      "text": "",
+      "rating": 5
+    },
+    {
+      "name": "Nishant Kumar Sawhney",
+      "date": "03:38 14 Oct 24",
+      "link": "https://www.google.com/maps/contrib/112913758974856981003/reviews",
+      "text": "",
+      "rating": 5
+    },
+    {
+      "name": "Maanya Arora",
+      "date": "12:53 10 Sep 24",
+      "link": "https://www.google.com/maps/contrib/114510324769768687056/reviews",
+      "text": "",
+      "rating": 5
+    },
+    {
+      "name": "Faizy Siddiqui",
+      "date": "18:37 25 Aug 24",
+      "link": "https://www.google.com/maps/contrib/114196346601097619828/reviews",
+      "text": "",
+      "rating": 5
+    }
+  ]
+}
