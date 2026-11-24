@@ -94,12 +94,20 @@ export default function Navbar({ onOpenAppointmentModal }) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center group py-1" aria-label="Tattoo Villa Homepage">
+          <Link to="/" className="flex items-center gap-3 group py-1" aria-label="Tattoo Villa Homepage">
             <img
-              src="/images/branding/tattoo-villa-logo.jpg"
+              src="/images/branding/tattoo-villa-logo.png"
               alt="Tattoo Villa - Master Tattoo Studio New Delhi"
-              className="h-10 sm:h-12 md:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-105 mix-blend-screen"
+              className="h-10 sm:h-12 md:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-md"
             />
+            <div className="flex flex-col">
+              <span className="font-display font-extrabold text-base sm:text-lg tracking-wider text-white group-hover:text-gold-400 transition-colors leading-none">
+                TATTOO VILLA
+              </span>
+              <span className="text-[10px] tracking-widest uppercase text-gold-400 font-semibold mt-1">
+                New Delhi • Est. 2010
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav Links */}

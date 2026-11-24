@@ -33,12 +33,20 @@ export default function LandingPage({ onOpenAppointmentModal, onOpenLightbox }) 
       {/* Conversion-Focused Minimal Top Bar */}
       <header className="bg-charcoal-900 border-b border-zinc-800 py-3 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center group py-1" aria-label="Tattoo Villa Homepage">
+          <Link to="/" className="flex items-center gap-3 group py-1" aria-label="Tattoo Villa Homepage">
             <img
-              src="/images/branding/tattoo-villa-logo.jpg"
+              src="/images/branding/tattoo-villa-logo.png"
               alt="Tattoo Villa Delhi"
-              className="h-10 sm:h-12 w-auto object-contain mix-blend-screen transition-transform duration-300 group-hover:scale-105"
+              className="h-10 sm:h-12 w-auto object-contain filter drop-shadow-md"
             />
+            <div className="flex flex-col">
+              <span className="font-display font-extrabold text-base sm:text-lg tracking-wider text-white leading-none">
+                TATTOO VILLA
+              </span>
+              <span className="text-[10px] tracking-widest uppercase text-gold-400 font-semibold mt-1">
+                Central Market, Lajpat Nagar II
+              </span>
+            </div>
           </Link>
 
           {/* Quick Action Buttons */}

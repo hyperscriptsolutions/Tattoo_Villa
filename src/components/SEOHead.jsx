@@ -64,7 +64,7 @@ export default function SEOHead({
         "@type": "TattooParlor",
         "@id": "https://tattooartistindelhi.com/#tattooparlor",
         "name": SITE_DATA.brand.name,
-        "image": "https://tattooartistindelhi.com/images/branding/tattoo-villa-logo.jpg",
+        "image": "https://tattooartistindelhi.com/images/branding/tattoo-villa-logo.png",
         "url": "https://tattooartistindelhi.com",
         "telephone": SITE_DATA.contact.delhi.phones[0].raw,
         "email": SITE_DATA.contact.delhi.email,

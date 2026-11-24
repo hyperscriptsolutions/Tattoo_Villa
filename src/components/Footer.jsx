@@ -15,12 +15,20 @@ export default function Footer({ onOpenAppointmentModal }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-zinc-800/80">
           {/* Column 1: Brand & Bio */}
           <div className="space-y-4">
-            <Link to="/" className="inline-block group mb-3" aria-label="Tattoo Villa Homepage">
+            <Link to="/" className="flex items-center gap-3 group mb-4" aria-label="Tattoo Villa Homepage">
               <img
-                src="/images/branding/tattoo-villa-logo.jpg"
+                src="/images/branding/tattoo-villa-logo.png"
                 alt="Tattoo Villa Delhi Logo"
-                className="h-14 sm:h-16 w-auto object-contain mix-blend-screen transition-transform duration-300 group-hover:scale-105"
+                className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-lg"
               />
+              <div className="flex flex-col">
+                <span className="font-display font-extrabold text-xl sm:text-2xl tracking-wider text-white group-hover:text-gold-400 transition-colors leading-none">
+                  TATTOO VILLA
+                </span>
+                <span className="text-[10px] tracking-widest uppercase text-gold-400 font-semibold mt-1">
+                  New Delhi • Est. 2010
+                </span>
+              </div>
             </Link>
 
             <p className="text-xs text-zinc-400 leading-relaxed">
