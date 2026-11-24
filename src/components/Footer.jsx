@@ -37,16 +37,16 @@ export default function Footer({ onOpenAppointmentModal }) {
 
             <div className="flex items-center gap-2 pt-1 text-xs text-gold-400 font-medium">
               <Star className="w-4 h-4 fill-gold-400 text-gold-400" />
-              <span>4.9 / 5.0 Rating based on 380+ Google Reviews</span>
+              <span>4.9 / 5.0 Rating based on 1,776+ Google Reviews</span>
             </div>
 
             <div className="pt-2 flex items-center gap-3">
               <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/tattoo_villa/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 flex items-center justify-center text-zinc-300 hover:text-gold-400 transition-colors"
-                aria-label="Instagram"
+                aria-label="Instagram @tattoo_villa"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -185,12 +185,97 @@ export default function Footer({ onOpenAppointmentModal }) {
               </div>
             </div>
 
-            {/* International Branch Notice (Separate) */}
-            <div className="p-3 rounded-xl bg-charcoal-900 border border-zinc-800 text-[11px] space-y-1">
-              <span className="text-zinc-400 font-medium block">{melbourne.title}</span>
-              <p className="text-zinc-500">{melbourne.address}</p>
-              <a href={`tel:${melbourne.phoneRaw}`} className="text-gold-400 hover:underline block">
+            {/* Australia Branch Notice */}
+            <div className="p-3.5 rounded-xl bg-charcoal-900 border border-gold-500/30 text-[11px] space-y-1.5 shadow-md">
+              <div className="flex items-center gap-1.5 text-gold-400 font-bold uppercase tracking-wider">
+                <span>🇦🇺</span>
+                <span>{melbourne.title}</span>
+              </div>
+              <p className="text-zinc-300 font-medium">{melbourne.address}</p>
+              <a href={`tel:${melbourne.phoneRaw}`} className="text-gold-400 hover:underline font-bold block">
                 {melbourne.phone}
+              </a>
+              <a
+                href={melbourne.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-400 hover:underline block text-[10px]"
+              >
+                WhatsApp Melbourne Studio →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Global Locations Bar: Delhi, Australia, Email (Matching Original Website) */}
+        <div className="py-8 my-8 border-y border-zinc-800/80 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {/* Delhi Location */}
+          <div className="flex items-start gap-4 p-5 rounded-2xl bg-charcoal-900/70 border border-zinc-800/80 hover:border-gold-500/30 transition-colors shadow-lg">
+            <div className="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-700/80 flex items-center justify-center text-gold-400 shrink-0 shadow-inner">
+              <MapPin className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-base">🇮🇳</span>
+                <h5 className="text-xs uppercase tracking-widest text-white font-extrabold">
+                  Delhi Location
+                </h5>
+              </div>
+              <p className="text-xs text-zinc-300 leading-relaxed font-medium">
+                {delhi.address}
+              </p>
+              <div className="mt-2 space-y-0.5 text-xs">
+                <a href="tel:+919818190412" className="block text-gold-400 hover:underline font-bold">+91 98181 90412</a>
+                <a href="tel:+919311511336" className="block text-zinc-400 hover:text-white">+91 93115 11336</a>
+              </div>
+            </div>
+          </div>
+
+          {/* Australia Location (Circled in User Request) */}
+          <div className="flex items-start gap-4 p-5 rounded-2xl bg-charcoal-900/70 border border-gold-500/40 hover:border-gold-500/70 transition-colors shadow-xl shadow-gold-500/5">
+            <div className="w-12 h-12 rounded-full bg-zinc-900 border border-gold-500/40 flex items-center justify-center text-gold-400 shrink-0 shadow-inner">
+              <MapPin className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-base">🇦🇺</span>
+                <h5 className="text-xs uppercase tracking-widest text-gold-400 font-extrabold">
+                  Australia Location
+                </h5>
+              </div>
+              <p className="text-xs text-zinc-200 leading-relaxed font-medium">
+                13 Ornament Ave Tarneit VIC 3029, Melbourne Australia
+              </p>
+              <div className="mt-2 text-xs space-y-1">
+                <a href="tel:+61478311912" className="text-gold-400 hover:underline font-bold block">
+                  +61-478311912
+                </a>
+                <a 
+                  href={melbourne.whatsappLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-emerald-400 hover:underline text-[11px] font-semibold flex items-center gap-1"
+                >
+                  WhatsApp Australia Branch →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Email Us */}
+          <div className="flex items-start gap-4 p-5 rounded-2xl bg-charcoal-900/70 border border-zinc-800/80 hover:border-gold-500/30 transition-colors shadow-lg">
+            <div className="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-700/80 flex items-center justify-center text-gold-400 shrink-0 shadow-inner">
+              <Mail className="w-5 h-5" />
+            </div>
+            <div>
+              <h5 className="text-xs uppercase tracking-widest text-white font-extrabold mb-1">
+                Email - Us
+              </h5>
+              <p className="text-xs text-zinc-400 mb-2 leading-relaxed">
+                Direct artist correspondence, custom stencils & global inquiries:
+              </p>
+              <a href="mailto:tattoovilla01@gmail.com" className="text-xs text-gold-400 hover:underline font-bold block">
+                tattoovilla01@gmail.com
               </a>
             </div>
           </div>

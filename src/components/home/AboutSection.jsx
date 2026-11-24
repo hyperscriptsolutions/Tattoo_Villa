@@ -21,7 +21,7 @@ export default function AboutSection({ onOpenAppointmentModal }) {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-charcoal-950 relative overflow-hidden" id="about">
+    <section className="py-20 sm:py-28 bg-charcoal-950 relative overflow-hidden scroll-mt-24 sm:scroll-mt-32" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Collage of Authentic Images with Clip-Path Reveal */}

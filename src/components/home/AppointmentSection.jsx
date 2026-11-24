@@ -25,7 +25,7 @@ export default function AppointmentSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-charcoal-900 border-t border-zinc-800/80 relative overflow-hidden" id="book-appointment">
+    <section className="py-20 sm:py-28 bg-charcoal-900 border-t border-zinc-800/80 relative overflow-hidden scroll-mt-24 sm:scroll-mt-32" id="book-appointment">
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
 

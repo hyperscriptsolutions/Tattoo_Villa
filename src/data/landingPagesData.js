@@ -4,7 +4,7 @@ export const LANDING_PAGES_DATA = {
     targetKeyword: "Best Tattoo Artist in Delhi",
     heroHeadline: "Delhi's Master Tattoo Artists. 15+ Years of Precision Ink.",
     subheadline: "Awarded master artists Harminder Singh & Jaspreet Singh bring international-grade realism, custom illustrations, and sterile precision to Central Market, Lajpat Nagar II.",
-    badge: "Top Rated Tattoo Studio in South Delhi • 4.9★ (380+ Google Reviews)",
+    badge: "Top Rated Tattoo Studio in South Delhi • 4.9★ (1,776+ Google Reviews)",
     heroImage: "/images/artists/harminder-singh.jpg",
     callout: "Looking for an experienced tattoo artist in Delhi who listens to your story and designs from scratch?",
     whyChooseHeadline: "Why Delhi's Discerning Ink Lovers Trust Harminder & Jaspreet",

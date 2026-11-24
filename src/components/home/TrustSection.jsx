@@ -8,7 +8,7 @@ import { fadeInUp, scaleUp } from '../../utils/animations';
 export default function TrustSection() {
   const stats = [
     { value: SITE_DATA.brand.experienceYears, label: "Years Experience", subtext: "Serving Delhi NCR since 2010" },
-    { value: "4.9★", label: "Google Rating", subtext: "Across 380+ verified reviews" },
+    { value: "4.9★", label: "Google Rating", subtext: "Across 1,776+ verified reviews" },
     { value: SITE_DATA.brand.tattoosDone, label: "Custom Inked", subtext: "Masterpieces created" },
     { value: "100%", label: "Sterile Clinical", subtext: "Single-use needles & autoclave" }
   ];

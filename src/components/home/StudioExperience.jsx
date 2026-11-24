@@ -8,7 +8,7 @@ export default function StudioExperience({ onOpenLightbox }) {
   const images = SITE_DATA.studioImages;
 
   return (
-    <section className="py-20 sm:py-28 bg-charcoal-950 border-t border-zinc-800/80 overflow-hidden" id="studio">
+    <section className="py-20 sm:py-28 bg-charcoal-950 border-t border-zinc-800/80 overflow-hidden scroll-mt-24 sm:scroll-mt-32" id="studio">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
           <motion.div

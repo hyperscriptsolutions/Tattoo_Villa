@@ -105,7 +105,7 @@ export default function StudioPage({ onOpenAppointmentModal, onOpenLightbox }) {
             <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-400 pt-2">
               <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-gold-400" /> Dedicated Valet & Public Parking Nearby</span>
               <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-gold-400" /> Wheelchair & Elevator Accessible Building</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-gold-400" /> Open 7 Days: 11:00 AM - 9:30 PM</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-gold-400" /> Tue – Sun: 11:30 AM – 9:30 PM (Mon Closed)</span>
             </div>
           </div>
 

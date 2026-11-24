@@ -13,6 +13,7 @@ export default function AppointmentForm({
     name: '',
     phone: '',
     email: '',
+    location: 'Delhi Studio',
     tattooType: initialCategory || 'Custom Tattoos',
     date: '',
     placement: '',
@@ -79,10 +80,9 @@ export default function AppointmentForm({
       newErrors.name = 'Please enter your full name (minimum 2 characters).';
     }
 
-    const phoneRegex = /^(\+91[\s-]?)?[6789]\d{9}$/;
-    const cleanPhone = formData.phone.replace(/[\s-]/g, '');
-    if (!formData.phone.trim() || !phoneRegex.test(cleanPhone)) {
-      newErrors.phone = 'Please enter a valid 10-digit mobile number (+91).';
+    const cleanPhone = formData.phone.replace(/[\s-+()]/g, '');
+    if (!formData.phone.trim() || cleanPhone.length < 8) {
+      newErrors.phone = 'Please enter a valid mobile number (e.g. +91 98181 90412 or +61 478 311 912).';
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -162,10 +162,15 @@ export default function AppointmentForm({
   const getWhatsAppDirectLink = () => {
     if (!submittedBooking) return `https://wa.me/${SITE_DATA.contact.delhi.whatsappNumber}`;
     
-    const text = `*New Tattoo Consultation Inquiry - Tattoo Villa Delhi*
+    const isAustralia = submittedBooking.location === 'Australia Studio';
+    const waTarget = isAustralia ? '61478311912' : SITE_DATA.contact.delhi.whatsappNumber;
+    const studioTitle = isAustralia ? 'Tattoo Villa Australia (Melbourne)' : 'Tattoo Villa Delhi';
+
+    const text = `*New Tattoo Consultation Inquiry - ${studioTitle}*
 • *Booking ID:* ${submittedBooking.bookingId}
 • *Name:* ${submittedBooking.name}
 • *Phone:* ${submittedBooking.phone}
+• *Location:* ${submittedBooking.location}
 • *Category:* ${submittedBooking.tattooType}
 • *Preferred Date:* ${submittedBooking.date}
 • *Idea/Placement:* ${submittedBooking.description}
@@ -173,10 +178,17 @@ ${submittedBooking.imageName ? `• *Reference Attached:* ${submittedBooking.ima
 
 Hi Tattoo Villa, I just scheduled an appointment request on your website. Please confirm artist availability!`;
 
-    return `https://wa.me/${SITE_DATA.contact.delhi.whatsappNumber}?text=${encodeURIComponent(text)}`;
+    return `https://wa.me/${waTarget}?text=${encodeURIComponent(text)}`;
   };
 
   if (submittedBooking) {
+    const isAustralia = submittedBooking.location === 'Australia Studio';
+    const locationDisplay = isAustralia 
+      ? '13 Ornament Ave Tarneit VIC 3029, Melbourne Australia' 
+      : 'Central Market, Lajpat Nagar II, New Delhi';
+    const phoneDisplay = isAustralia ? '+61-478311912' : SITE_DATA.contact.delhi.phones[0].display;
+    const phoneRaw = isAustralia ? '+61478311912' : SITE_DATA.contact.delhi.phones[0].raw;
+
     return (
       <div className="glass-panel-gold rounded-2xl p-6 sm:p-8 text-center text-zinc-100 max-w-xl mx-auto border border-gold-500/40 shadow-2xl">
         <div className="w-16 h-16 rounded-full bg-gold-500/10 text-gold-400 mx-auto flex items-center justify-center mb-4 border border-gold-500/30">
@@ -194,16 +206,16 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
 
         <div className="bg-charcoal-900/90 rounded-xl p-4 text-left text-xs sm:text-sm space-y-2 mb-6 border border-zinc-800">
           <div className="flex justify-between border-b border-zinc-800 pb-2">
+            <span className="text-zinc-400">Studio Location:</span>
+            <span className="text-gold-400 font-medium text-right ml-2">{locationDisplay}</span>
+          </div>
+          <div className="flex justify-between border-b border-zinc-800 pb-2">
             <span className="text-zinc-400">Tattoo Category:</span>
             <span className="text-zinc-200 font-medium">{submittedBooking.tattooType}</span>
           </div>
           <div className="flex justify-between border-b border-zinc-800 pb-2">
             <span className="text-zinc-400">Preferred Date:</span>
             <span className="text-zinc-200 font-medium">{submittedBooking.date}</span>
-          </div>
-          <div className="flex justify-between border-b border-zinc-800 pb-2">
-            <span className="text-zinc-400">Studio Location:</span>
-            <span className="text-zinc-200 font-medium">Central Market, Lajpat Nagar II, Delhi</span>
           </div>
           <div className="flex justify-between pt-1">
             <span className="text-zinc-400">Consultation Fee:</span>
@@ -216,7 +228,7 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
             href={getWhatsAppDirectLink()}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick(SITE_DATA.contact.delhi.whatsappNumber, 'post_appointment_confirmation')}
+            onClick={() => trackWhatsAppClick(isAustralia ? '61478311912' : SITE_DATA.contact.delhi.whatsappNumber, 'post_appointment_confirmation')}
             className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg hover:shadow-emerald-600/30 text-sm"
           >
             <MessageSquare className="w-5 h-5" />
@@ -224,11 +236,11 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
           </a>
 
           <a
-            href={`tel:${SITE_DATA.contact.delhi.phones[0].raw}`}
+            href={`tel:${phoneRaw}`}
             className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-medium transition-all text-sm border border-zinc-700"
           >
             <PhoneCall className="w-4 h-4 text-gold-400" />
-            Call Studio Directly: {SITE_DATA.contact.delhi.phones[0].display}
+            Call Studio Directly: {phoneDisplay}
           </a>
         </div>
 
@@ -285,7 +297,7 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
         </div>
       </div>
 
-      {/* Email & Tattoo Category */}
+      {/* Email & Studio Location */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
@@ -306,6 +318,24 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
 
         <div>
           <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
+            Studio Location <span className="text-gold-400">*</span>
+          </label>
+          <select
+            name="location"
+            value={formData.location}
+            onChange={handleInputChange}
+            className="w-full px-4 py-3 rounded-xl bg-charcoal-900 border border-zinc-700/80 focus:border-gold-500 text-white text-sm outline-none transition-colors cursor-pointer"
+          >
+            <option value="Delhi Studio">🇮🇳 Delhi (Lajpat Nagar II)</option>
+            <option value="Australia Studio">🇦🇺 Australia (Melbourne VIC)</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Tattoo Category & Preferred Date */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
             Tattoo Category <span className="text-gold-400">*</span>
           </label>
           <select
@@ -321,10 +351,7 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
             ))}
           </select>
         </div>
-      </div>
 
-      {/* Preferred Date & Placement */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
             Preferred Date <span className="text-gold-400">*</span>
@@ -343,20 +370,21 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
           </div>
           {errors.date && <p className="text-rose-400 text-xs mt-1">{errors.date}</p>}
         </div>
+      </div>
 
-        <div>
-          <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
-            Placement Area (Optional)
-          </label>
-          <input
-            type="text"
-            name="placement"
-            value={formData.placement}
-            onChange={handleInputChange}
-            placeholder="e.g. Forearm, Collarbone, Back, Calf"
-            className="w-full px-4 py-3 rounded-xl bg-charcoal-900 border border-zinc-700/80 focus:border-gold-500 text-white placeholder-zinc-500 text-sm outline-none transition-colors"
-          />
-        </div>
+      {/* Placement Area */}
+      <div>
+        <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
+          Placement Area (Optional)
+        </label>
+        <input
+          type="text"
+          name="placement"
+          value={formData.placement}
+          onChange={handleInputChange}
+          placeholder="e.g. Forearm, Collarbone, Back, Calf"
+          className="w-full px-4 py-3 rounded-xl bg-charcoal-900 border border-zinc-700/80 focus:border-gold-500 text-white placeholder-zinc-500 text-sm outline-none transition-colors"
+        />
       </div>
 
       {/* Tattoo Description */}

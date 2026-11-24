@@ -1,14 +1,42 @@
-import React from 'react';
-import { Star, ExternalLink, Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { Star, ExternalLink, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SITE_DATA } from '../../data/siteData';
 import { fadeInUp, scaleUp } from '../../utils/animations';
 
 export default function ReviewsSection() {
   const reviews = SITE_DATA.reviews;
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => 
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const defaultLimit = isMobile ? 4 : 6;
+  const visibleReviews = isExpanded ? reviews : reviews.slice(0, defaultLimit);
+  const hasMore = visibleReviews.length < reviews.length;
+  const remainingCount = reviews.length - visibleReviews.length;
+  const googleMapsUrl = SITE_DATA.contact.delhi.mapDirectLink || "https://www.google.com/maps/search/?api=1&query=Tattoo+Villa+Central+Market+Lajpat+Nagar+II+New+Delhi+Delhi+110024";
+
+  const handleShowMore = () => {
+    setIsExpanded(true);
+  };
+
+  const handleShowLess = () => {
+    setIsExpanded(false);
+    document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <section className="py-20 sm:py-28 bg-charcoal-900 border-t border-zinc-800/80 overflow-hidden" id="reviews">
+    <section className="py-20 sm:py-28 bg-charcoal-900 border-t border-zinc-800/80 overflow-hidden scroll-mt-24 sm:scroll-mt-32" id="reviews">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with Google Rating Badge */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
@@ -58,12 +86,12 @@ export default function ReviewsSection() {
                   ))}
                 </div>
               </div>
-              <p className="text-xs text-zinc-300 font-medium">Based on 380+ Verified Google Reviews</p>
+              <p className="text-xs text-zinc-300 font-medium">Based on 1,776+ Verified Google Reviews</p>
               <a
-                href={SITE_DATA.contact.delhi.mapDirectLink}
+                href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[11px] text-gold-400 hover:underline flex items-center gap-1 mt-0.5"
+                className="text-[11px] text-gold-400 hover:underline flex items-center gap-1 mt-0.5 cursor-pointer"
               >
                 <span>Read verified reviews on Google Maps</span>
                 <ExternalLink className="w-3 h-3" />
@@ -72,49 +100,96 @@ export default function ReviewsSection() {
           </motion.div>
         </div>
 
-        {/* Reviews Grid */}
+        {/* Reviews Grid (Show 6 Initially) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reviews.map((rev, idx) => (
-            <motion.div
-              key={rev.id}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-40px" }}
-              variants={scaleUp}
-              custom={idx % 3}
-              whileHover={{ y: -6, transition: { duration: 0.3 } }}
-              className="glass-panel p-6 sm:p-7 rounded-2xl border border-zinc-800/80 hover:border-gold-500/40 transition-colors flex flex-col justify-between group shadow-lg"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex text-amber-400">
-                    {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <span className="px-2 py-0.5 rounded-full bg-zinc-800 text-[10px] font-semibold text-zinc-400">
-                    {rev.tag}
-                  </span>
-                </div>
-
-                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 italic">
-                  "{rev.comment}"
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+          <AnimatePresence>
+            {visibleReviews.map((rev, idx) => (
+              <motion.div
+                key={rev.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.35, delay: (idx % 3) * 0.08 }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="glass-panel p-6 sm:p-7 rounded-2xl border border-zinc-800/80 hover:border-gold-500/40 transition-colors flex flex-col justify-between group shadow-lg"
+              >
                 <div>
-                  <h4 className="text-sm font-bold text-white group-hover:text-gold-300 transition-colors">
-                    {rev.name}
-                  </h4>
-                  <p className="text-[11px] text-zinc-500">{rev.date}</p>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex text-amber-400">
+                      {[...Array(rev.rating)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <span className="px-2 py-0.5 rounded-full bg-zinc-800 text-[10px] font-semibold text-zinc-400">
+                      {rev.tag}
+                    </span>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 italic">
+                    "{rev.comment}"
+                  </p>
                 </div>
-                <div className="w-6 h-6 rounded-full bg-green-500/10 text-green-400 flex items-center justify-center text-[10px] font-bold" title="Verified Customer">
-                  ✓
+
+                <div className="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+                  <div>
+                    {rev.profileLink ? (
+                      <a
+                        href={rev.profileLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-bold text-white group-hover:text-gold-300 transition-colors inline-flex items-center gap-1.5"
+                      >
+                        <span>{rev.name}</span>
+                        <ExternalLink className="w-3 h-3 text-zinc-500 group-hover:text-gold-400" />
+                      </a>
+                    ) : (
+                      <h4 className="text-sm font-bold text-white group-hover:text-gold-300 transition-colors">
+                        {rev.name}
+                      </h4>
+                    )}
+                    <p className="text-[11px] text-zinc-500">{rev.date}</p>
+                  </div>
+                  <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] font-bold" title="Verified Google Customer Review">
+                    <span>✓</span>
+                    <span className="hidden sm:inline">Google Verified</span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+
+        {/* Action Controls: Show More / Show Less & Read on Google Maps */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          {hasMore ? (
+            <button
+              onClick={handleShowMore}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-xl bg-charcoal-950 hover:bg-zinc-800 border border-gold-500/40 hover:border-gold-500 text-gold-400 hover:text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg cursor-pointer group"
+            >
+              <span>Show More Reviews ({remainingCount} More)</span>
+              <ChevronDown className="w-4 h-4 text-gold-400 group-hover:translate-y-0.5 transition-transform" />
+            </button>
+          ) : (
+            reviews.length > defaultLimit && (
+              <button
+                onClick={handleShowLess}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-charcoal-950 hover:bg-zinc-800 border border-zinc-700 text-zinc-400 hover:text-white font-semibold text-xs tracking-wider transition-all cursor-pointer"
+              >
+                <span>Show Less</span>
+                <ChevronUp className="w-4 h-4" />
+              </button>
+            )
+          )}
+
+          <a
+            href={googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white hover:text-gold-300 font-bold text-xs uppercase tracking-wider border border-zinc-700 hover:border-gold-500/40 transition-all shadow-lg group cursor-pointer"
+          >
+            <span>Read All 1,776+ Google Reviews on Maps</span>
+            <ExternalLink className="w-3.5 h-3.5 text-gold-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
         </div>
       </div>
     </section>

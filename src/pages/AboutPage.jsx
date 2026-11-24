@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Award, ShieldCheck, Heart, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { SITE_DATA } from '../data/siteData';
@@ -106,15 +107,27 @@ export default function AboutPage({ onOpenAppointmentModal }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {SITE_DATA.awards.map((award, idx) => (
-              <div key={idx} className="glass-panel p-6 rounded-2xl border border-zinc-800">
-                <span className="text-xs font-bold text-gold-400 block mb-1">{award.year}</span>
-                <h4 className="text-lg font-serif font-bold text-white mb-1">{award.title}</h4>
-                <p className="text-xs text-zinc-400 font-medium mb-3">{award.organization}</p>
-                <p className="text-xs text-zinc-400 leading-relaxed">{award.description}</p>
+              <div key={idx} className="glass-panel p-6 rounded-2xl border border-zinc-800 hover:border-gold-500/30 transition-all flex flex-col justify-between">
+                <div>
+                  <span className="text-xs font-bold text-gold-400 block mb-1">Year {award.year}</span>
+                  <h4 className="text-lg font-serif font-bold text-white mb-1">{award.title}</h4>
+                  <p className="text-xs text-zinc-400 font-medium mb-3">{award.organization}</p>
+                  <p className="text-xs text-zinc-400 leading-relaxed">{award.description}</p>
+                </div>
               </div>
             ))}
+          </div>
+
+          <div className="text-center pt-2">
+            <Link
+              to="/awards"
+              className="inline-flex items-center gap-2 py-3 px-6 rounded-xl bg-gold-metallic text-black font-extrabold text-xs uppercase tracking-wider hover:brightness-110 transition-all shadow-md"
+            >
+              <span>Explore All 24+ Convention Trophies & Certificates</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>

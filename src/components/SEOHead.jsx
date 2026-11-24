@@ -93,7 +93,7 @@ export default function SEOHead({
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.9",
-          "reviewCount": "380",
+          "reviewCount": "1776",
           "bestRating": "5",
           "worstRating": "1"
         }
@@ -130,8 +130,10 @@ export default function SEOHead({
 
     scriptTag.text = JSON.stringify(schemas);
 
-    // Scroll to top on route change
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    // Scroll to top on route change only if no hash anchor is present
+    if (!window.location.hash) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
   }, [fullTitle, description, fullCanonical, ogImage, JSON.stringify(faqs), JSON.stringify(breadcrumbs)]);
 
   return null;

@@ -7,7 +7,7 @@ import { fadeInUp, scaleUp } from '../../utils/animations';
 
 export default function ServicesGrid({ onOpenAppointmentModal }) {
   return (
-    <section className="py-20 sm:py-28 bg-charcoal-950 relative overflow-hidden" id="services">
+    <section className="py-20 sm:py-28 bg-charcoal-950 relative overflow-hidden scroll-mt-24 sm:scroll-mt-32" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div

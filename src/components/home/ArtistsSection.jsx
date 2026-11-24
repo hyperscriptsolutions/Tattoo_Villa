@@ -7,7 +7,7 @@ import { fadeInUp, scaleUp } from '../../utils/animations';
 
 export default function ArtistsSection({ onOpenAppointmentModal }) {
   return (
-    <section className="py-20 sm:py-28 bg-charcoal-900 border-t border-zinc-800/80 overflow-hidden" id="artists">
+    <section className="py-20 sm:py-28 bg-charcoal-900 border-t border-zinc-800/80 overflow-hidden scroll-mt-24 sm:scroll-mt-32" id="artists">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

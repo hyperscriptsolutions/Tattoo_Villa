@@ -10,7 +10,7 @@ export default function ContactSection() {
   const melbourne = SITE_DATA.contact.melbourne;
 
   return (
-    <section className="py-20 sm:py-28 bg-charcoal-950 border-t border-zinc-800/80 overflow-hidden" id="contact">
+    <section className="py-20 sm:py-28 bg-charcoal-950 border-t border-zinc-800/80 overflow-hidden scroll-mt-24 sm:scroll-mt-32" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -156,19 +156,85 @@ export default function ContactSection() {
                     {delhi.hours}
                   </p>
                   <p className="text-[11px] text-zinc-400 mt-0.5">
-                    Open all 7 days • Prior appointments recommended
+                    Tuesday – Sunday (Monday Closed) • Appointments recommended
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Melbourne Partner Branch Note */}
-            <div className="p-5 rounded-2xl bg-charcoal-900 border border-zinc-800 text-xs text-zinc-400">
-              <span className="text-[11px] uppercase tracking-wider text-gold-400 font-bold block mb-1">
-                Overseas Partner Studio • Melbourne, Australia
-              </span>
-              <p className="text-zinc-300">{melbourne.address}</p>
-              <p className="text-zinc-400 mt-0.5">Phone: {melbourne.phone} • {melbourne.note}</p>
+            {/* Australia Location Box */}
+            <div className="glass-panel p-6 sm:p-7 rounded-3xl border border-gold-500/30 space-y-4 shadow-xl">
+              <div className="border-b border-zinc-800 pb-3 flex items-center justify-between">
+                <div>
+                  <span className="text-[11px] uppercase tracking-widest text-gold-400 font-bold block mb-0.5">
+                    International Branch • Victoria
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl">🇦🇺</span>
+                    <h3 className="text-xl font-serif font-bold text-white">
+                      Australia Location
+                    </h3>
+                  </div>
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-[10px] font-bold text-gold-400 uppercase tracking-wider">
+                  Melbourne
+                </span>
+              </div>
+
+              {/* Australia Address */}
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-xl bg-gold-500/10 text-gold-400 border border-gold-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="text-xs uppercase tracking-wider text-zinc-400 font-bold mb-0.5">
+                    Studio Address
+                  </h4>
+                  <p className="text-sm text-zinc-200 font-medium leading-relaxed">
+                    13 Ornament Ave Tarneit VIC 3029, Melbourne Australia
+                  </p>
+                  <a
+                    href={melbourne.mapDirectLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-gold-400 hover:underline font-semibold mt-1 group"
+                  >
+                    <Navigation className="w-3.5 h-3.5 group-hover:rotate-45 transition-transform" />
+                    Open in Google Maps / Directions
+                  </a>
+                </div>
+              </div>
+
+              {/* Australia Phone */}
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-xl bg-gold-500/10 text-gold-400 border border-gold-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="text-xs uppercase tracking-wider text-zinc-400 font-bold mb-0.5">
+                    Phone Number
+                  </h4>
+                  <a
+                    href={`tel:${melbourne.phoneRaw}`}
+                    className="text-sm text-zinc-200 hover:text-gold-400 font-semibold transition-colors block"
+                  >
+                    {melbourne.phone}
+                  </a>
+                </div>
+              </div>
+
+              {/* Direct WhatsApp for Australia */}
+              <div className="pt-1">
+                <a
+                  href={melbourne.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 px-4 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 text-emerald-400 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Chat With Australia Branch on WhatsApp</span>
+                </a>
+              </div>
             </div>
           </motion.div>
 

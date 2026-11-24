@@ -13,6 +13,7 @@ import StudioPage from './pages/StudioPage';
 import AwardsPage from './pages/AwardsPage';
 import TrainingPage from './pages/TrainingPage';
 import ContactPage from './pages/ContactPage';
+import ReviewsPage from './pages/ReviewsPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import LandingPage from './pages/LandingPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
@@ -38,6 +39,20 @@ export default function App() {
   useEffect(() => {
     captureUtmParameters();
   }, [location.search]);
+
+  // Handle smooth scroll when navigating with hash (e.g. /#reviews)
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const timer = setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname, location.hash]);
 
   const handleOpenAppointmentModal = (category = 'Custom Tattoos') => {
     setAppointmentModal({
@@ -132,13 +147,22 @@ export default function App() {
           <Route
             path="/awards"
             element={
-              <AwardsPage onOpenAppointmentModal={handleOpenAppointmentModal} />
+              <AwardsPage
+                onOpenAppointmentModal={handleOpenAppointmentModal}
+                onOpenLightbox={handleOpenLightbox}
+              />
             }
           />
           <Route
             path="/training"
             element={
               <TrainingPage onOpenAppointmentModal={handleOpenAppointmentModal} />
+            }
+          />
+          <Route
+            path="/reviews"
+            element={
+              <ReviewsPage onOpenAppointmentModal={handleOpenAppointmentModal} />
             }
           />
           <Route

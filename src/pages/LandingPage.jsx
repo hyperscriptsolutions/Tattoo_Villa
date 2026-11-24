@@ -133,7 +133,7 @@ export default function LandingPage({ onOpenAppointmentModal, onOpenLightbox }) 
                 <div className="glass-panel p-3 rounded-xl border border-zinc-800">
                   <Star className="w-5 h-5 fill-gold-400 text-gold-400 mx-auto mb-1" />
                   <span className="font-bold text-white block">4.9★ Google</span>
-                  <span className="text-[10px] text-zinc-400">380+ reviews</span>
+                  <span className="text-[10px] text-zinc-400">1,776+ reviews</span>
                 </div>
               </div>
             </div>
@@ -289,7 +289,7 @@ export default function LandingPage({ onOpenAppointmentModal, onOpenLightbox }) 
             Ready to Speak with Our Senior Inkers?
           </h3>
           <p className="text-xs sm:text-sm text-zinc-400 mb-6">
-            Central Market, Lajpat Nagar II, New Delhi. Open 7 days a week from 11:00 AM to 9:30 PM.
+            Central Market, Lajpat Nagar II, New Delhi. Open Tuesday to Sunday from 11:30 AM to 9:30 PM (Monday Closed).
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
