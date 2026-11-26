@@ -74,11 +74,10 @@ export default function GalleryPage({ onOpenAppointmentModal, onOpenLightbox }) 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveFilter(cat)}
-              className={`py-2 px-5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
-                activeFilter === cat
+              className={`py-2 px-5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${activeFilter === cat
                   ? 'bg-gold-metallic text-black shadow-lg font-bold'
                   : 'bg-charcoal-900 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700'
-              }`}
+                }`}
             >
               {cat}
             </motion.button>
@@ -138,7 +137,7 @@ export default function GalleryPage({ onOpenAppointmentModal, onOpenLightbox }) 
                     {item.title}
                   </h3>
                   <p className="text-xs text-zinc-400 mt-1">Inked by {item.artist}</p>
-                  
+
                   <div className="mt-3 flex items-center gap-1.5 text-xs text-gold-400 font-semibold transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75">
                     {item.isVideo ? (
                       <>

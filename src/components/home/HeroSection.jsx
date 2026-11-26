@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Calendar, Eye, Star, ShieldCheck, Award, MapPin, 
+import {
+  Calendar, Eye, Star, ShieldCheck, Award, MapPin,
   Play, Pause, Volume2, VolumeX, Sparkles, Film, X
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -55,9 +55,8 @@ export default function HeroSection({ onOpenAppointmentModal }) {
           playsInline
           preload="auto"
           onLoadedData={() => setIsVideoLoaded(true)}
-          className={`w-full h-full object-cover object-center transition-opacity duration-700 ${
-            isVideoLoaded ? 'opacity-100' : 'opacity-80'
-          }`}
+          className={`w-full h-full object-cover object-center transition-opacity duration-700 ${isVideoLoaded ? 'opacity-100' : 'opacity-80'
+            }`}
         >
           <source src="/videos/hero-tattoo-reel-hd.mp4" type="video/mp4" />
           <source src="/videos/hero-tattoo-reel.mp4" type="video/mp4" />
@@ -71,10 +70,10 @@ export default function HeroSection({ onOpenAppointmentModal }) {
           HERO CONTENT LAYER (100% FULLY TRANSPARENT - NO BOX)
           ========================================================================= */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center my-auto">
-        
+
         {/* Fully transparent content wrapper with generous top clearance */}
         <div className="w-full flex flex-col items-center">
-          
+
           {/* Top Trust & Location Badge */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
