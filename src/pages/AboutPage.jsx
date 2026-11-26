@@ -8,8 +8,8 @@ export default function AboutPage({ onOpenAppointmentModal }) {
   return (
     <div className="py-12 sm:py-20 bg-charcoal-950">
       <SEOHead
-        title="About Us | Our Story & Founders Harminder & Jaspreet Singh"
-        description="Learn about Tattoo Villa Delhi's 15-year journey. Founded by master artists Harminder Singh and Jaspreet Singh in Central Market, Lajpat Nagar II."
+        title="About Us | Our Story & Artists | Tattoo Villa Delhi"
+        description="Learn about Tattoo Villa Delhi's 15-year journey. Master artists Harminder Singh (15+ yrs) and Jaspreet Singh (7+ yrs) in Central Market, Lajpat Nagar II."
         canonicalUrl="/about"
         breadcrumbs={[
           { name: "Home", path: "/" },
@@ -36,19 +36,19 @@ export default function AboutPage({ onOpenAppointmentModal }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
           <div className="rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl relative aspect-square bg-charcoal-900">
             <img
-              src="/images/artists/harminder-singh.jpg"
-              alt="Harminder Singh at Tattoo Villa"
+              src="https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795692843/IMG_3462.heic"
+              alt="Founder at Tattoo Villa"
               className="w-full h-full object-cover object-center filter contrast-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6">
               <span className="px-3 py-1 rounded-full bg-gold-500/20 text-gold-400 text-xs font-bold border border-gold-500/30">
-                15+ Years Experience
+                Founder
               </span>
               <h3 className="text-2xl font-serif font-bold text-white mt-2">
-                Harminder Singh
+                Founder of Tattoo Villa
               </h3>
-              <p className="text-xs text-zinc-300">Founder & Master Realism Inker</p>
+              <p className="text-xs text-zinc-300">Founder & Visionary</p>
             </div>
           </div>
 
@@ -57,10 +57,10 @@ export default function AboutPage({ onOpenAppointmentModal }) {
               Turning Passion Into a Living Legacy
             </h2>
             <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
-              Our journey began 15 years ago when founder Harminder Singh decided to transform his natural artistic gift and mastery of human anatomical drawing into professional tattooing. Recognizing a lack of true custom illustration and strict sterile environments in the local market, Tattoo Villa was established in the vibrant heart of Central Market, Lajpat Nagar II.
+              Our journey began 15 years ago when the founder of Tattoo Villa set out to transform a deep passion for body art into an elite custom tattoo sanctuary. Recognizing a lack of true custom illustration and strict sterile environments in the local market, Tattoo Villa was established in the vibrant heart of Central Market, Lajpat Nagar II.
             </p>
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
-              Joined by lead artist Jaspreet Singh, the studio established a reputation for pushing technical boundaries: complex photo-realism, fine-line single needle precision, intricate dotwork mandalas, and culturally reverent spiritual compositions.
+              Joined by master tattoo artist Harminder Singh and lead artist Jaspreet Singh (7+ yrs), the studio established a reputation for pushing technical boundaries: complex photo-realism, fine-line single needle precision, intricate dotwork mandalas, and culturally reverent spiritual compositions.
             </p>
 
             <div className="space-y-3 pt-2">

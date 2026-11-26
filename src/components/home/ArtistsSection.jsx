@@ -30,7 +30,7 @@ export default function ArtistsSection({ onOpenAppointmentModal }) {
         </motion.div>
 
         {/* Artist Profiles Grid: Side-by-side with 100% full uncropped square photos & smooth reveals */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SITE_DATA.artists.map((artist, idx) => (
             <motion.div
               key={artist.id}
@@ -55,18 +55,20 @@ export default function ArtistsSection({ onOpenAppointmentModal }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/85 via-transparent to-transparent pointer-events-none"></div>
 
                 {/* Experience Badge with subtle glow */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.15 }}
-                  className="absolute top-4 left-4 z-10"
-                >
-                  <span className="px-3.5 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-gold-500/40 text-xs font-bold text-gold-400 shadow-xl flex items-center gap-1.5">
-                    <Award className="w-3.5 h-3.5 text-gold-400" />
-                    <span>{artist.experience}</span>
-                  </span>
-                </motion.div>
+                {artist.experience && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 + idx * 0.15 }}
+                    className="absolute top-4 left-4 z-10"
+                  >
+                    <span className="px-3.5 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-gold-500/40 text-xs font-bold text-gold-400 shadow-xl flex items-center gap-1.5">
+                      <Award className="w-3.5 h-3.5 text-gold-400" />
+                      <span>{artist.experience}</span>
+                    </span>
+                  </motion.div>
+                )}
 
                 {/* Artist Name & Role Overlay at bottom edge of photo */}
                 <div className="absolute bottom-4 left-6 right-6 z-10 pointer-events-none">

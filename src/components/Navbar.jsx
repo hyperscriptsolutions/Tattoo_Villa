@@ -32,6 +32,18 @@ export default function Navbar({ onOpenAppointmentModal }) {
     setIsServicesOpen(false);
   }, [location.pathname]);
 
+  // Lock background scroll when mobile drawer is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const handleNavLinkClick = (e, path) => {
     if (path.includes('#')) {
       const hash = path.split('#')[1];
@@ -213,8 +225,20 @@ export default function Navbar({ onOpenAppointmentModal }) {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile Menu & Action Buttons */}
+          <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden">
+            {/* Mobile Instagram Action */}
+            <a
+              href="https://www.instagram.com/tattoo_villa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-xl bg-charcoal-900 border border-zinc-800 hover:border-pink-500/50 text-pink-400 hover:text-pink-300 transition-all flex items-center justify-center shadow-md active:scale-95 group"
+              aria-label="Follow Tattoo Villa on Instagram @tattoo_villa"
+              title="Instagram @tattoo_villa"
+            >
+              <InstagramIcon className="w-5 h-5 text-pink-400 group-hover:scale-110 transition-transform" />
+            </a>
+
             <button
               onClick={() => onOpenAppointmentModal()}
               className="py-2 px-3 rounded-lg bg-gold-metallic text-black font-bold text-xs uppercase tracking-wider shadow-md flex items-center gap-1.5"
@@ -232,9 +256,9 @@ export default function Navbar({ onOpenAppointmentModal }) {
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Mobile Navigation Drawer with Smooth Viewport-Bounded Scrolling */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-charcoal-950 border-b border-zinc-800 px-4 pt-3 pb-6 space-y-3">
+          <div className="lg:hidden bg-charcoal-950/98 backdrop-blur-xl border-b border-zinc-800 px-4 pt-3 pb-36 space-y-3 max-h-[calc(100dvh-4rem)] max-h-[calc(100vh-4rem)] overflow-y-auto overscroll-contain shadow-2xl">
             <div className="flex flex-col space-y-1">
               {navLinks.map((link) => {
                 if (link.hasDropdown) {
@@ -248,6 +272,7 @@ export default function Navbar({ onOpenAppointmentModal }) {
                           <Link
                             key={item.name}
                             to={item.path}
+                            onClick={() => setIsMobileMenuOpen(false)}
                             className="block px-3 py-1.5 text-sm text-zinc-300 hover:text-gold-400"
                           >
                             {item.name}

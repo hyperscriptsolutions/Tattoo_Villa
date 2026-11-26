@@ -8,7 +8,7 @@ export default function ArtistsPage({ onOpenAppointmentModal, onOpenLightbox }) 
     <div className="py-12 sm:py-20 bg-charcoal-950">
       <SEOHead
         title="Our Artists | Master Inkers Harminder Singh & Jaspreet Singh"
-        description="Meet master tattoo artists Harminder Singh (15+ yrs, realism & portraits) and Jaspreet Singh (10+ yrs, fine-line & Japanese) at Tattoo Villa Delhi."
+        description="Meet master tattoo artists Harminder Singh (15+ yrs, realism & portraits) and Jaspreet Singh (7+ yrs, fine-line & Japanese) at Tattoo Villa Delhi."
         canonicalUrl="/artists"
         breadcrumbs={[
           { name: "Home", path: "/" },
@@ -21,7 +21,7 @@ export default function ArtistsPage({ onOpenAppointmentModal, onOpenLightbox }) 
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            25+ Years Combined Mastery
+            22+ Years Combined Mastery
           </span>
           <h1 className="text-4xl sm:text-6xl font-serif font-black text-white tracking-tight mb-4">
             Master Artists of Tattoo Villa
@@ -49,11 +49,13 @@ export default function ArtistsPage({ onOpenAppointmentModal, onOpenLightbox }) 
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 filter contrast-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent pointer-events-none"></div>
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-gold-500/40 text-xs font-bold text-gold-400">
-                      {artist.experience}
-                    </span>
-                  </div>
+                  {artist.experience && (
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-gold-500/40 text-xs font-bold text-gold-400">
+                        {artist.experience}
+                      </span>
+                    </div>
+                  )}
                   <div className="absolute bottom-6 left-6 right-6">
                     <p className="text-xs uppercase tracking-widest text-gold-400 font-bold">
                       {artist.role}

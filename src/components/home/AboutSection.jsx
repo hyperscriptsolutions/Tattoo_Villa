@@ -33,26 +33,25 @@ export default function AboutSection({ onOpenAppointmentModal }) {
             className="relative"
           >
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Primary Image: Harminder Singh with Smooth Zoom & Clip Reveal */}
+              {/* Primary Image: Founder with Smooth Zoom & Clip Reveal */}
               <motion.div
                 variants={clipPathReveal}
                 className="rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl relative z-10 aspect-square bg-charcoal-900 group"
               >
                 <img
-                  src="/images/artists/harminder-singh.jpg"
-                  alt="Founder Harminder Singh at Tattoo Villa Delhi"
+                  src="https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795692843/IMG_3462.heic"
+                  alt="Founder of Tattoo Villa Delhi"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out filter contrast-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
                 
                 <div className="absolute bottom-6 left-6 right-6">
                   <span className="px-3 py-1 rounded-full bg-gold-500/20 text-gold-400 border border-gold-500/30 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
-                    Founder & Master Inker
+                    Founder
                   </span>
                   <h4 className="text-white font-serif text-xl sm:text-2xl font-bold mt-2">
-                    Harminder Singh
+                    Founder of Tattoo Villa
                   </h4>
-                  <p className="text-xs text-zinc-300">15+ Years Crafting Living Art in New Delhi</p>
                 </div>
               </motion.div>
 
@@ -101,7 +100,7 @@ export default function AboutSection({ onOpenAppointmentModal }) {
             </h2>
 
             <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
-              At <strong className="text-white font-semibold">Tattoo Villa</strong>, our journey began over 15 years ago when founder Harminder Singh turned his lifelong passion for fine arts and human anatomy into a world-class tattooing sanctuary in New Delhi.
+              At <strong className="text-white font-semibold">Tattoo Villa</strong>, our journey began over 15 years ago when the founder of Tattoo Villa turned a lifelong passion for fine arts and human anatomy into a world-class tattooing sanctuary in New Delhi.
             </p>
 
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">

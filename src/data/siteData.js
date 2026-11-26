@@ -60,14 +60,42 @@ export const SITE_DATA = {
       note: "Official Melbourne Studio. Available for custom inking and design sessions in Victoria, Australia."
     }
   },
+  founder: {
+    id: "founder",
+    name: "Founder",
+    role: "Founder",
+    image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795692843/IMG_3462.heic",
+    bio: "The founder and visionary driving force behind Tattoo Villa. Established in 2010 in Central Market, Lajpat Nagar II, leading with a steadfast commitment to sterile hospital-grade procedures, uncompromising client care, and bespoke artistic integrity.",
+    specialties: [
+      "Studio Vision & Leadership",
+      "Hospital-Grade Sterile Protocols",
+      "Custom Artistry Direction",
+      "Client Care & Mentorship"
+    ],
+    quote: "Tattoo Villa was founded on a simple promise: art that resonates for a lifetime, crafted with pure integrity."
+  },
   artists: [
+    {
+      id: "founder",
+      name: "Founder",
+      role: "Founder",
+      image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795692843/IMG_3462.heic",
+      bio: "The founder and visionary driving force behind Tattoo Villa. Established in 2010 in Central Market, Lajpat Nagar II, leading with a steadfast commitment to sterile hospital-grade procedures, uncompromising client care, and bespoke artistic integrity.",
+      specialties: [
+        "Studio Vision & Leadership",
+        "Hospital-Grade Sterile Protocols",
+        "Custom Artistry Direction",
+        "Client Care & Mentorship"
+      ],
+      quote: "Tattoo Villa was founded on a simple promise: art that resonates for a lifetime, crafted with pure integrity."
+    },
     {
       id: "harminder-singh",
       name: "Harminder Singh",
-      role: "Founder & Master Tattoo Artist",
+      role: "Master Tattoo Artist",
       experience: "15+ Years",
-      image: "/images/artists/harminder-singh.jpg",
-      bio: "Harminder Singh is the founder and visionary driving force behind Tattoo Villa. With over 15 years of relentless artistic mastery, he is recognized across Delhi NCR for groundbreaking realism, high-contrast portraiture, intricate dotwork, and seamless large-scale sleeve compositions. His philosophy balances profound technical anatomical knowledge with deep artistic soul.",
+      image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795693118/IMG_8407.JPG.jpg",
+      bio: "Harminder Singh is a master tattoo artist and artistic pillar at Tattoo Villa. With over 15 years of relentless artistic mastery, he is recognized across Delhi NCR for groundbreaking realism, high-contrast portraiture, intricate dotwork, and seamless large-scale sleeve compositions. His philosophy balances profound technical anatomical knowledge with deep artistic soul.",
       specialties: [
         "Hyper-Realism & 3D Tattoos",
         "Celebrity & Family Portraits",
@@ -81,9 +109,9 @@ export const SITE_DATA = {
       id: "jaspreet-singh",
       name: "Jaspreet Singh",
       role: "Lead Tattoo Artist",
-      experience: "10+ Years",
-      image: "/images/artists/jaspreet-singh.jpg",
-      bio: "Jaspreet Singh brings a decade of specialized discipline across traditional Japanese aesthetics, ultra-fine-line minimalism, spiritual calligraphy, and delicate animal portraits. Renowned for micro-precision needle control and gentle hand technique, Jaspreet delivers stunning, crisp artwork with minimal skin trauma.",
+      experience: "7+ Years",
+      image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795693275/IMG_2984.heic",
+      bio: "Jaspreet Singh brings over 7 years of specialized discipline across traditional Japanese aesthetics, ultra-fine-line minimalism, spiritual calligraphy, and delicate animal portraits. Renowned for micro-precision needle control and gentle hand technique, Jaspreet delivers stunning, crisp artwork with minimal skin trauma.",
       specialties: [
         "Fine-Line & Single Needle Tattoos",
         "Sanskrit, Gurmukhi & Calligraphy",
@@ -304,30 +332,30 @@ export const SITE_DATA = {
   reviews: [
     {
       id: "rev-1",
-      name: "Mohan Tiwari",
-      date: "01 Feb 2025",
+      name: "Ankit Kalia",
+      date: "20 Feb 2025",
       rating: 5,
-      comment: "Tattoo Villa is easily the best tattoo studio in Delhi. Harminder paaji is a true master artist. The level of clinical hygiene, single-use needle setups, and anatomical precision he delivered on my realism piece exceeded all expectations. 100% recommended!",
-      profileLink: "https://www.google.com/maps/contrib/115180007873607368573/reviews",
-      tag: "Master Realism"
+      comment: "I had an amazing experience at this tattoo studio! The artist was extremely professional, friendly, and patient throughout the entire process. The studio was clean, hygienic, and maintained the highest standards of safety.",
+      profileLink: "https://www.google.com/maps/search/?api=1&query=Tattoo+Villa+Central+Market+Lajpat+Nagar+II+New+Delhi+Delhi+110024",
+      tag: "Hygiene & Safety"
     },
     {
       id: "rev-2",
-      name: "Suneha Rajput",
-      date: "26 Jan 2025",
+      name: "Ishwar Chand",
+      date: "10 Feb 2025",
       rating: 5,
-      comment: "Got my first tattoo from Tattoo Villa and the experience was 10/10 in all aspects. The artist was so patient and made me feel completely relaxed. Cleanliness is top tier!",
-      profileLink: "https://www.google.com/maps/contrib/111205555677844202686/reviews",
-      tag: "First Tattoo"
+      comment: "I've gotten four tattoos from this studio, and every experience has been amazing. The artists are incredibly talented, professional, and pay great attention to detail. Clean, welcoming, and follow top hygiene standards.",
+      profileLink: "https://www.google.com/maps/search/?api=1&query=Tattoo+Villa+Central+Market+Lajpat+Nagar+II+New+Delhi+Delhi+110024",
+      tag: "Repeat Client"
     },
     {
       id: "rev-3",
-      name: "shubham khatter",
-      date: "30 Oct 2024",
+      name: "Mohan Tiwari",
+      date: "01 Feb 2025",
       rating: 5,
-      comment: "I recently got a tattoo here, and I couldn’t be happier! I came in unsure of exactly what design I wanted, but the team was incredibly patient and helpful in guiding me to the perfect choice. Their professionalism was top-notch; the artist took the time to make sure everything was precise and kept me comfortable throughout the process. The tattoo turned out beautifully, and I’m beyond thrilled with it. Highly recommend this studio for anyone looking for great service and artistry!",
-      profileLink: "https://www.google.com/maps/contrib/110313599183740291102/reviews",
-      tag: "Custom Design"
+      comment: "Tattoo Villa is easily the best tattoo studio in Delhi. The team are true master artists. The level of clinical hygiene, single-use needle setups, and anatomical precision delivered on my piece exceeded all expectations. 100% recommended!",
+      profileLink: "https://www.google.com/maps/contrib/115180007873607368573/reviews",
+      tag: "Master Realism"
     },
     {
       id: "rev-4",
@@ -340,6 +368,15 @@ export const SITE_DATA = {
     },
     {
       id: "rev-5",
+      name: "Suneha Rajput",
+      date: "26 Jan 2025",
+      rating: 5,
+      comment: "Got my first tattoo from Tattoo Villa and the experience was 10/10 in all aspects. The artist was so patient and made me feel completely relaxed. Cleanliness is top tier!",
+      profileLink: "https://www.google.com/maps/contrib/111205555677844202686/reviews",
+      tag: "First Tattoo"
+    },
+    {
+      id: "rev-6",
       name: "Shrishti Yadav",
       date: "26 Jan 2025",
       rating: 5,
@@ -348,49 +385,58 @@ export const SITE_DATA = {
       tag: "Fine-Line Detailing"
     },
     {
-      id: "rev-6",
-      name: "Arpana Arora",
-      date: "18 Jan 2025",
-      rating: 5,
-      comment: "I really had a good experience over there! It was my first tattoo and I was very skeptical but my experience was really great. So happy to be part of Studio Villa. Thank you so much! Would love to visit again.",
-      profileLink: "https://www.google.com/maps/contrib/105828449730971117496/reviews",
-      tag: "First-Timer Experience"
-    },
-    {
       id: "rev-7",
-      name: "Nishant Kumar Sawhney",
-      date: "14 Oct 2024",
-      rating: 5,
-      comment: "Well experienced artist and very humble, overall good experience. Hygiene is maintained very well. Cost is also decent as per the experienced artist. Thank you so much.",
-      profileLink: "https://www.google.com/maps/contrib/112913758974856981003/reviews",
-      tag: "Hygiene & Value"
-    },
-    {
-      id: "rev-8",
-      name: "Maanya Arora",
-      date: "10 Sep 2024",
-      rating: 5,
-      comment: "My experience was great. Me and my mother both got tattoos. We were a bit scared of the pain as it was our first one. But thanks to Tattoo Villa the pain was minimal and bearable. The service was awesome. They made the exact same tattoo I wanted. Would highly recommend this place. Thank you Tattoo Villa!",
-      profileLink: "https://www.google.com/maps/contrib/114510324769768687056/reviews",
-      tag: "Mother-Daughter Tattoos"
-    },
-    {
-      id: "rev-9",
-      name: "Faizy Siddiqui",
-      date: "25 Aug 2024",
-      rating: 5,
-      comment: "I recently got a tattoo from Tattoo Villa. Incredibly talented artists with a keen eye for detail and deep understanding of their craft. Took the time to understand my vision and brought it to life with precision and care. Lines are crisp, shading is smooth. Truly exceptional!",
-      profileLink: "https://www.google.com/maps/contrib/114196346601097619828/reviews",
-      tag: "Master Shading"
-    },
-    {
-      id: "rev-10",
       name: "Arun Kashyap",
       date: "26 Jan 2025",
       rating: 5,
       comment: "Outstanding work on my Lord Shiva devotional artwork. The dotwork shading, sacred geometry symmetry, and gradient depth are unmatched. Single-use sterile needles opened right in front of me. Highly professional team!",
       profileLink: "https://www.google.com/maps/contrib/107692525227092693469/reviews",
       tag: "Devotional & Spiritual"
+    },
+    {
+      id: "rev-8",
+      name: "Arpana Arora",
+      date: "18 Jan 2025",
+      rating: 5,
+      comment: "I really had a good experience over there! It was my first tattoo and I was very skeptical but my experience was really great. So happy to be part of Tattoo Villa. Thank you so much! Would love to visit again.",
+      profileLink: "https://www.google.com/maps/contrib/105828449730971117496/reviews",
+      tag: "First-Timer Experience"
+    },
+    {
+      id: "rev-9",
+      name: "shubham khatter",
+      date: "30 Oct 2024",
+      rating: 5,
+      comment: "I recently got a tattoo here, and I couldn’t be happier! I came in unsure of exactly what design I wanted, but the team was incredibly patient and helpful in guiding me to the perfect choice. The artist took the time to make sure everything was precise and kept me comfortable throughout. Highly recommend this studio!",
+      profileLink: "https://www.google.com/maps/contrib/110313599183740291102/reviews",
+      tag: "Custom Design"
+    },
+    {
+      id: "rev-10",
+      name: "Nishant Kumar Sawhney",
+      date: "14 Oct 2024",
+      rating: 5,
+      comment: "Well experienced artist (Gurpreet ji) and very humble, overall good experience, hygiene is maintained very well. Cost is also decent as per the experienced artist. Thank you so much.",
+      profileLink: "https://www.google.com/maps/contrib/112913758974856981003/reviews",
+      tag: "Hygiene & Value"
+    },
+    {
+      id: "rev-11",
+      name: "Maanya Arora",
+      date: "10 Sep 2024",
+      rating: 5,
+      comment: "My experience was great. Me and my mother both got matching tattoos. We were scared of the pain as it was our first one, but the pain was minimal and bearable. The service was awesome. They made the exact same tattoo I wanted. Thank you Tattoo Villa!",
+      profileLink: "https://www.google.com/maps/contrib/114510324769768687056/reviews",
+      tag: "Mother-Daughter Tattoos"
+    },
+    {
+      id: "rev-12",
+      name: "Faizy Siddiqui",
+      date: "25 Aug 2024",
+      rating: 5,
+      comment: "I recently got a tattoo from Tattoo Villa. Incredibly talented artists with a keen eye for detail and deep understanding of their craft. Took the time to understand my vision and brought it to life with precision and care. Lines are crisp, shading is smooth. Truly exceptional!",
+      profileLink: "https://www.google.com/maps/contrib/114196346601097619828/reviews",
+      tag: "Master Shading"
     }
   ],
   services: [

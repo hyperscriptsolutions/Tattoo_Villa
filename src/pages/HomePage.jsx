@@ -21,7 +21,7 @@ export default function HomePage({ onOpenAppointmentModal, onOpenLightbox }) {
     },
     {
       q: "Who are the head tattoo artists at Tattoo Villa?",
-      a: "Our studio is founded and led by master tattoo artists Harminder Singh (15+ years experience, realism & portraits) and Jaspreet Singh (10+ years experience, fine-line, Japanese & calligraphy)."
+      a: "Our studio is led by master tattoo artists Harminder Singh (15+ years experience, realism & portraits) and Jaspreet Singh (7+ years experience, fine-line, Japanese & calligraphy)."
     },
     {
       q: "How does Tattoo Villa ensure safety and hygiene?",
