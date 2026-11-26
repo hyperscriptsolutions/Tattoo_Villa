@@ -112,7 +112,7 @@ export default function HeroSection({ onOpenAppointmentModal }) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-sm sm:text-base md:text-lg text-zinc-100 max-w-2xl mx-auto leading-relaxed mb-8 font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
           >
-            Welcome to <strong className="text-white font-semibold">Tattoo Villa</strong>, New Delhi's premier sanctuary for custom photorealism, micro-fine line, and devotional tattoo artistry. Led by master inker Harminder Singh in Central Market, Lajpat Nagar II.
+            Welcome to <strong className="text-white font-semibold">Tattoo Villa</strong>, New Delhi's premier sanctuary for custom photorealism, micro-fine line, and devotional tattoo artistry in Central Market, Lajpat Nagar II.
           </motion.p>
 
           {/* Primary CTAs */}
