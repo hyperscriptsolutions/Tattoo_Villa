@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, Calendar, Sparkles } from 'lucide-react';
+import { Eye, Calendar, Sparkles, Play } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEOHead from '../components/SEOHead';
 import { SITE_DATA } from '../data/siteData';
@@ -10,6 +10,7 @@ export default function GalleryPage({ onOpenAppointmentModal, onOpenLightbox }) 
 
   const categories = [
     'All',
+    'Videos',
     'Realism',
     'Portrait',
     'Sleeve',
@@ -20,32 +21,17 @@ export default function GalleryPage({ onOpenAppointmentModal, onOpenLightbox }) 
     'Custom'
   ];
 
-  // Extended gallery collection based on genuine downloaded works
-  const extendedGallery = [
-    ...SITE_DATA.gallery,
-    { id: 17, title: "Anatomical Full Arm Mechanical Realism", category: "Realism", src: "/images/tattoos/1000008220-1-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 18, title: "Geometric Compass & Arrow Sleeve", category: "Sleeve", src: "/images/tattoos/1000013345-768x1024.jpeg", artist: "Jaspreet Singh" },
-    { id: 19, title: "Hyper-Detailed Majestic Tiger", category: "Animal", src: "/images/tattoos/1000013764-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 20, title: "Lord Ganesha Blessings Sleeve", category: "Religious", src: "/images/tattoos/1000016470-768x1024.jpeg", artist: "Jaspreet Singh" },
-    { id: 21, title: "Dark Samurai & Cherry Blossom", category: "Realism", src: "/images/tattoos/10108-768x768.jpeg", artist: "Harminder Singh" },
-    { id: 22, title: "Realistic Guardian Angel Wings", category: "Portrait", src: "/images/tattoos/10990-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 23, title: "Minimal Roman Numerals on Forearm", category: "Minimal", src: "/images/tattoos/11078-768x1024.jpeg", artist: "Jaspreet Singh" },
-    { id: 24, title: "Sacred Mandala & Dotwork Lotus", category: "Custom", src: "/images/tattoos/711A8F8D-FC10-4681-8FF8-9750C1E4AAA0-1-768x850.jpeg", artist: "Jaspreet Singh" },
-    { id: 25, title: "Micro-Realism Mountain Landscape", category: "Minimal", src: "/images/tattoos/7405-768x768.jpeg", artist: "Jaspreet Singh" },
-    { id: 26, title: "Roaring Lion Chest Piece", category: "Animal", src: "/images/tattoos/7466-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 27, title: "Sanskrit Mahamrityunjaya Mantra", category: "Religious", src: "/images/tattoos/9037-1-768x768.jpeg", artist: "Jaspreet Singh" },
-    { id: 28, title: "Bespoke Cover-up Feather Transformation", category: "Custom", src: "/images/tattoos/9808-768x1024.jpeg", artist: "Harminder Singh" }
-  ];
+  const allWorks = SITE_DATA.gallery;
 
   const filteredItems = activeFilter === 'All'
-    ? extendedGallery
-    : extendedGallery.filter(item => item.category === activeFilter);
+    ? allWorks
+    : allWorks.filter(item => item.category === activeFilter);
 
   return (
     <div className="py-12 sm:py-20 bg-charcoal-950 overflow-hidden">
       <SEOHead
         title="Tattoo Portfolio Gallery | Master Artworks Inked in Delhi"
-        description="Browse 50+ authentic tattoo masterpieces created at Tattoo Villa Delhi. Explore realism, portraits, sleeves, fine-line, religious, and custom artwork."
+        description="Browse 64+ authentic tattoo masterpieces and fresh process wipe reels created at Tattoo Villa Delhi. Explore realism, portraits, sleeves, fine-line, religious, and custom artwork."
         canonicalUrl="/gallery"
         breadcrumbs={[
           { name: "Home", path: "/" },
@@ -117,13 +103,19 @@ export default function GalleryPage({ onOpenAppointmentModal, onOpenLightbox }) 
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
                 className="group relative rounded-2xl overflow-hidden bg-charcoal-900 border border-zinc-800 hover:border-gold-500/50 transition-colors duration-300 cursor-pointer shadow-lg hover:shadow-2xl"
               >
-                <div className="aspect-[3/4] overflow-hidden">
+                <div className="aspect-[3/4] overflow-hidden relative">
                   <img
                     src={item.src}
                     alt={item.title}
                     loading="lazy"
                     className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out filter contrast-105"
                   />
+                  {item.isVideo && (
+                    <div className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-black/80 border border-gold-500/40 text-gold-300 text-[10px] font-bold flex items-center gap-1.5 backdrop-blur-sm shadow-md">
+                      <Play className="w-3 h-3 fill-gold-400 text-gold-400" />
+                      <span>Reel</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Overlay with Smooth Backdrop Fade */}
@@ -137,8 +129,17 @@ export default function GalleryPage({ onOpenAppointmentModal, onOpenLightbox }) 
                   <p className="text-xs text-zinc-400 mt-1">Inked by {item.artist}</p>
                   
                   <div className="mt-3 flex items-center gap-1.5 text-xs text-gold-400 font-semibold transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                    <Eye className="w-3.5 h-3.5" />
-                    <span>Click to view full resolution</span>
+                    {item.isVideo ? (
+                      <>
+                        <Play className="w-3.5 h-3.5 fill-gold-400" />
+                        <span>Click to watch process reel</span>
+                      </>
+                    ) : (
+                      <>
+                        <Eye className="w-3.5 h-3.5" />
+                        <span>Click to view full resolution</span>
+                      </>
+                    )}
                   </div>
                 </div>
               </motion.div>

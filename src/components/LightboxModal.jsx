@@ -88,16 +88,33 @@ export default function LightboxModal({ isOpen, images, currentIndex, onClose, o
             onClick={(e) => e.stopPropagation()}
           >
             <AnimatePresence mode="wait">
-              <motion.img
-                key={current.src || current}
-                src={current.src || current}
-                alt={current.title || current.caption || "Tattoo Villa Artwork"}
-                initial={{ scale: 0.94, opacity: 0, y: 10 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.94, opacity: 0, y: -10 }}
-                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-2xl border border-zinc-800/80"
-              />
+              {current.videoUrl ? (
+                <motion.video
+                  key={current.videoUrl}
+                  src={current.videoUrl}
+                  poster={current.src}
+                  controls
+                  autoPlay
+                  playsInline
+                  loop
+                  initial={{ scale: 0.94, opacity: 0, y: 10 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  exit={{ scale: 0.94, opacity: 0, y: -10 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  className="max-h-[75vh] w-auto max-w-full rounded-xl shadow-2xl border border-zinc-800/80 bg-black"
+                />
+              ) : (
+                <motion.img
+                  key={current.src || current}
+                  src={current.src || current}
+                  alt={current.title || current.caption || "Tattoo Villa Artwork"}
+                  initial={{ scale: 0.94, opacity: 0, y: 10 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  exit={{ scale: 0.94, opacity: 0, y: -10 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  className="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-2xl border border-zinc-800/80"
+                />
+              )}
             </AnimatePresence>
 
             {(current.title || current.caption || current.category) && (

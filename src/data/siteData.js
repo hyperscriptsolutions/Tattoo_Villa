@@ -399,8 +399,8 @@ export const SITE_DATA = {
       title: "Portrait Tattoos",
       shortDesc: "Hyper-realistic portraits capturing emotional depth, authentic facial textures, and lifelike eye details of loved ones, icons, or deities.",
       fullDesc: "Portrait tattooing requires master-level anatomic understanding and flawless needle control. At Tattoo Villa, Harminder Singh utilizes specialized grey-wash gradients, micro-needle stippling, and contrast mapping to recreate portraits that look photo-real on your skin and age gracefully over decades.",
-      image: "/images/tattoos/IMG_2584-2-768x1024.jpeg",
-      bannerImage: "/images/tattoos/IMG_2588-768x1024.jpeg",
+      image: "/images/cloudinary_tattoos/IMG_0955.jpg",
+      bannerImage: "/images/cloudinary_tattoos/IMG_2099.jpg",
       slug: "portrait-tattoos",
       features: [
         "Lifelike human and celebrity likeness",
@@ -418,8 +418,8 @@ export const SITE_DATA = {
       title: "Realism Tattoos",
       shortDesc: "3D depth, dynamic light-and-shadow rendering, and photorealistic textures in monochromatic black & grey and rich saturated tones.",
       fullDesc: "Our realism tattoos push the boundaries of modern ink. From realistic statues and mythological icons to mechanical biometrics, our artists employ layered tones and soft edge transitions that turn human skin into a living canvas.",
-      image: "/images/tattoos/1000001334-768x1024.jpeg",
-      bannerImage: "/images/tattoos/1000001335-768x1024.jpeg",
+      image: "/images/cloudinary_tattoos/IMG_0973.jpg",
+      bannerImage: "/images/cloudinary_tattoos/IMG_0187.jpg",
       slug: "realism-tattoos",
       features: [
         "High-contrast 3D shadow mapping",
@@ -436,8 +436,8 @@ export const SITE_DATA = {
       title: "Animal & Wildlife Tattoos",
       shortDesc: "Fierce lions, majestic tigers, wolves, birds of prey, and domestic companions rendered with hair-by-hair texture and piercing gaze.",
       fullDesc: "Capture strength, loyalty, courage, and spirit with our hyper-detailed wildlife tattoos. Our artists specialize in hyper-detailed fur textures, whiskers, realistic canine teeth, and glowing eye reflections that evoke undeniable presence.",
-      image: "/images/tattoos/IMG_2641-768x1024.jpeg",
-      bannerImage: "/images/tattoos/IMG_2641-2-768x1024.jpeg",
+      image: "/images/cloudinary_tattoos/IMG_2603.jpg",
+      bannerImage: "/images/cloudinary_tattoos/IMG_0145.jpg",
       slug: "animal-tattoos",
       features: [
         "Strand-by-strand fur and feather rendering",
@@ -454,8 +454,8 @@ export const SITE_DATA = {
       title: "Religious & Spiritual Tattoos",
       shortDesc: "Lord Shiva, Trishul, Mahakal, Buddha, Ganesha, Gurmukhi hymns, and sacred geometry crafted with deep devotion and cultural sanctity.",
       fullDesc: "Religious tattoos hold sacred significance. We treat every spiritual piece with reverence and artistic authenticity, crafting intricate iconography like Trishul with Damru, Shiva Meditations, Omkara, Buddha Serenity, and sacred Mantras that resonate with personal faith.",
-      image: "/images/tattoos/IMG_2582-768x1024.jpeg",
-      bannerImage: "/images/tattoos/IMG_2450-768x1024.jpeg",
+      image: "/images/cloudinary_tattoos/IMG_0191-1.jpg",
+      bannerImage: "/images/cloudinary_tattoos/IMG_2524.jpg",
       slug: "religious-tattoos",
       features: [
         "Devotional sanctity and correct traditional iconography",
@@ -472,8 +472,8 @@ export const SITE_DATA = {
       title: "Calligraphy & Script Tattoos",
       shortDesc: "Elegant cursive, bold gothic lettering, minimalist Roman numerals, and flowing Sanskrit scripts designed exclusively for your anatomy.",
       fullDesc: "Words carry power. Rather than using generic computer fonts, we custom draw lettering that contours naturally across your collarbone, forearm, ribs, or wrist. From delicate handwritten verses to bold Chicano lettering, every curve is deliberate.",
-      image: "/images/tattoos/IMG_2453-768x1024.jpeg",
-      bannerImage: "/images/tattoos/IMG_2463-768x1024.jpeg",
+      image: "/images/cloudinary_tattoos/IMG_0177.jpg",
+      bannerImage: "/images/cloudinary_tattoos/IMG_9727.jpg",
       slug: "calligraphy-tattoos",
       features: [
         "Custom freehand and digital typography",
@@ -490,8 +490,8 @@ export const SITE_DATA = {
       title: "Minimal & Fine-Line Tattoos",
       shortDesc: "Understated elegance, micro single-needle motifs, celestial symbols, and subtle personal reminders crafted with delicate precision.",
       fullDesc: "Minimalism is the art of expressing maximum meaning with the fewest possible lines. Perfect for first-timers and subtle aesthetic lovers, our fine-line artists use single-needle configurations (1RL / 3RL) to produce gossamer-fine lines that feel light, airy, and sophisticated.",
-      image: "/images/tattoos/IMG_2644-768x1024.jpeg",
-      bannerImage: "/images/tattoos/IMG_2645-768x1024.jpeg",
+      image: "/images/cloudinary_tattoos/IMG_0752.jpg",
+      bannerImage: "/images/cloudinary_tattoos/IMG_0749.jpg",
       slug: "minimal-tattoos",
       features: [
         "Single needle (1RL) micro-detail craftsmanship",
@@ -508,8 +508,8 @@ export const SITE_DATA = {
       title: "Full & Half Sleeve Projects",
       shortDesc: "Comprehensive cohesive masterworks that seamlessly flow over arm, leg, chest, or back musculature with consistent thematic harmony.",
       fullDesc: "A sleeve is a major artistic commitment. At Tattoo Villa, we don't just glue random stickers together; we map out full 360-degree flows, taking into account muscle flex, joint movement, and contrast balances to design an awe-inspiring cohesive masterpiece.",
-      image: "/images/tattoos/1000017690-768x1024.jpeg",
-      bannerImage: "/images/tattoos/1000017696-768x1024.jpeg",
+      image: "/images/cloudinary_tattoos/IMG_1020.jpg",
+      bannerImage: "/images/cloudinary_tattoos/IMG_2663.jpg",
       slug: "sleeve-tattoos",
       features: [
         "360-degree 3D anatomical flow mapping",
@@ -526,8 +526,8 @@ export const SITE_DATA = {
       title: "Custom Designs & Cover-Ups",
       shortDesc: "Bespoke illustrations engineered from your ideas, plus complete artistic transformation of old, faded, or unwanted tattoos.",
       fullDesc: "Don't settle for Pinterest copies. Our senior artists sit with you in private consultation to sketch and render a one-of-a-kind design that represents your personal journey. For cover-ups, we use intelligent color theory, strategic dark anchors, and optical redirection so the old ink vanishes completely.",
-      image: "/images/tattoos/IMG_2499-768x1024.jpeg",
-      bannerImage: "/images/tattoos/IMG_2502-768x1024.jpeg",
+      image: "/images/cloudinary_tattoos/IMG_2264.jpg",
+      bannerImage: "/images/cloudinary_tattoos/IMG_0736.jpg",
       slug: "custom-tattoos",
       features: [
         "1-on-1 collaborative design consultation",
@@ -541,24 +541,476 @@ export const SITE_DATA = {
     }
   ],
   gallery: [
-    { id: 1, title: "Hyper-Realistic Greek Warrior Sleeve", category: "Realism", src: "/images/tattoos/1000001334-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 2, title: "Mythological Realism Arm Project", category: "Realism", src: "/images/tattoos/1000001335-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 3, title: "Fierce Lion & Roaring Wildlife", category: "Animal", src: "/images/tattoos/IMG_2641-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 4, title: "High-Contrast Portraiture", category: "Portrait", src: "/images/tattoos/IMG_2584-2-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 5, title: "Lord Shiva Sacred Trishul & Damru", category: "Religious", src: "/images/tattoos/IMG_2582-768x1024.jpeg", artist: "Jaspreet Singh" },
-    { id: 6, title: "Intricate Full Arm Black & Grey Sleeve", category: "Sleeve", src: "/images/tattoos/1000017690-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 7, title: "Single Needle Fine-Line Floral", category: "Minimal", src: "/images/tattoos/IMG_2644-768x1024.jpeg", artist: "Jaspreet Singh" },
-    { id: 8, title: "Dynamic Flowing Calligraphy Verse", category: "Calligraphy", src: "/images/tattoos/IMG_2453-768x1024.jpeg", artist: "Jaspreet Singh" },
-    { id: 9, title: "Custom Dark Realism Arm Piece", category: "Realism", src: "/images/tattoos/1000011723-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 10, title: "Spiritual Omkara with Smoke Detailing", category: "Religious", src: "/images/tattoos/IMG_2450-768x1024.jpeg", artist: "Jaspreet Singh" },
-    { id: 11, title: "Detailed Wolf and Geometric Forest", category: "Animal", src: "/images/tattoos/IMG_2641-2-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 12, title: "Bespoke Cover-up Transformation", category: "Custom", src: "/images/tattoos/IMG_2499-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 13, title: "Geometric Mandala & Dotwork", category: "Custom", src: "/images/tattoos/IMG_2512-768x1024.jpeg", artist: "Jaspreet Singh" },
-    { id: 14, title: "Fine Line Feather & Script", category: "Minimal", src: "/images/tattoos/IMG_2645-768x1024.jpeg", artist: "Jaspreet Singh" },
-    { id: 15, title: "Full Arm Warrior Narrative Sleeve", category: "Sleeve", src: "/images/tattoos/1000017696-768x1024.jpeg", artist: "Harminder Singh" },
-    { id: 16, title: "Photorealistic Family Memorial Portrait", category: "Portrait", src: "/images/tattoos/IMG_2588-768x1024.jpeg", artist: "Harminder Singh" }
+      {
+          "id": 1,
+          "title": "Creation of Adam & Sacred Heart Leg Piece Foam Wipe Reveal",
+          "category": "Videos",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2525_poster.jpg",
+          "videoUrl": "https://res.cloudinary.com/ozrdoi7q/video/upload/q_auto,f_mp4,vc_h264/v1795670731/IMG_2525.mp4",
+          "isVideo": true
+      },
+      {
+          "id": 2,
+          "title": "Toronto Skyline & Canadian Rockies Forearm Sleeve Wipe Reveal",
+          "category": "Videos",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2656_poster.jpg",
+          "videoUrl": "https://res.cloudinary.com/ozrdoi7q/video/upload/q_auto,f_mp4,vc_h264/v1795670718/IMG_2656.mp4",
+          "isVideo": true
+      },
+      {
+          "id": 3,
+          "title": "Japanese Crimson Dragon Shoulder Piece Clean Wipe Reveal",
+          "category": "Videos",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2274_poster.jpg",
+          "videoUrl": "https://res.cloudinary.com/ozrdoi7q/video/upload/q_auto,f_mp4,vc_h264/v1795670711/IMG_2274.mp4",
+          "isVideo": true
+      },
+      {
+          "id": 4,
+          "title": "Cybernetic Biomechanical Octopus Fresh Ink Wipe Reveal",
+          "category": "Videos",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2169_poster.jpg",
+          "videoUrl": "https://res.cloudinary.com/ozrdoi7q/video/upload/q_auto,f_mp4,vc_h264/v1795670711/IMG_2169.mp4",
+          "isVideo": true
+      },
+      {
+          "id": 5,
+          "title": "Poseidon Ocean God Forearm Realism Master Wipe Reveal",
+          "category": "Videos",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2094_poster.jpg",
+          "videoUrl": "https://res.cloudinary.com/ozrdoi7q/video/upload/q_auto,f_mp4,vc_h264/v1795670710/IMG_2094.mp4",
+          "isVideo": true
+      },
+      {
+          "id": 6,
+          "title": "Biomechanical Kraken 360 Forearm Flow & Dimension",
+          "category": "Videos",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2157_poster.jpg",
+          "videoUrl": "https://res.cloudinary.com/ozrdoi7q/video/upload/q_auto,f_mp4,vc_h264/v1795670708/IMG_2157.mp4",
+          "isVideo": true
+      },
+      {
+          "id": 7,
+          "title": "Blackwork Flame Neck Tattoo Studio Lighting Showcase",
+          "category": "Videos",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2058_poster.jpg",
+          "videoUrl": "https://res.cloudinary.com/ozrdoi7q/video/upload/q_auto,f_mp4,vc_h264/v1795670708/IMG_2058.mp4",
+          "isVideo": true
+      },
+      {
+          "id": 8,
+          "title": "Ascending Fine-Line Phoenix Micro-Needle Arm Rotation",
+          "category": "Videos",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2329_poster.jpg",
+          "videoUrl": "https://res.cloudinary.com/ozrdoi7q/video/upload/q_auto,f_mp4,vc_h264/v1795670707/IMG_2329.mp4",
+          "isVideo": true
+      },
+      {
+          "id": 9,
+          "title": "African Lion Sunset Portrait Studio Reveal & Detail Pan",
+          "category": "Videos",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2598_poster.jpg",
+          "videoUrl": "https://res.cloudinary.com/ozrdoi7q/video/upload/q_auto,f_mp4,vc_h264/v1795670707/IMG_2598.mp4",
+          "isVideo": true
+      },
+      {
+          "id": 10,
+          "title": "Spartan Armor Warrior with Broadsword",
+          "category": "Realism",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0187.jpg"
+      },
+      {
+          "id": 11,
+          "title": "Chrono Skull & Baroque Rose Realism Sleeve",
+          "category": "Realism",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0973.jpg"
+      },
+      {
+          "id": 12,
+          "title": "Gambler's Luck: Roman Clock & Ace Cards Realism",
+          "category": "Realism",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0609.jpg"
+      },
+      {
+          "id": 13,
+          "title": "Crowned King Skull with Aces & Smoke",
+          "category": "Realism",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0408.jpg"
+      },
+      {
+          "id": 14,
+          "title": "Ace of Spades, Compass & Eye of Providence",
+          "category": "Realism",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9728.jpg"
+      },
+      {
+          "id": 15,
+          "title": "Steampunk Clockwork Skull & Piercing Eye",
+          "category": "Realism",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9533.jpg"
+      },
+      {
+          "id": 16,
+          "title": "Peering Eyes Realistic Ripped Skin Sleeve",
+          "category": "Realism",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9304.jpg"
+      },
+      {
+          "id": 17,
+          "title": "Spartan Gladiator Chest Piece Armor",
+          "category": "Realism",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9287.jpg"
+      },
+      {
+          "id": 18,
+          "title": "Time & Vision: Realistic Eye with Baroque Rose",
+          "category": "Realism",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9269.jpg"
+      },
+      {
+          "id": 19,
+          "title": "Spartan Helmet & Howling Wolf Moon Realism",
+          "category": "Realism",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9772.jpg"
+      },
+      {
+          "id": 20,
+          "title": "Toronto Skyline & Canadian Rocky Mountains Sleeve",
+          "category": "Realism",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2663.jpg"
+      },
+      {
+          "id": 21,
+          "title": "Blindfolded Valkyrie Goddess with Dual Blades",
+          "category": "Portrait",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0955.jpg"
+      },
+      {
+          "id": 22,
+          "title": "Mythological Poseidon Ocean God Forearm",
+          "category": "Portrait",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2099.jpg"
+      },
+      {
+          "id": 23,
+          "title": "Guardian Angel Protecting Child Memorial",
+          "category": "Portrait",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2434.jpg"
+      },
+      {
+          "id": 24,
+          "title": "Stairway to Heaven Memorial with Angelic Ribbons",
+          "category": "Portrait",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9295.jpg"
+      },
+      {
+          "id": 25,
+          "title": "Crescent Moon Fairy with Starlight Glow",
+          "category": "Portrait",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9511.jpg"
+      },
+      {
+          "id": 26,
+          "title": "Monogram Ski-Mask Hand Portrait",
+          "category": "Portrait",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9662.jpg"
+      },
+      {
+          "id": 27,
+          "title": "Roaring Bengal Tiger & Jungle Waterfall Full Sleeve",
+          "category": "Animal",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0145.jpg"
+      },
+      {
+          "id": 28,
+          "title": "Pride of Africa: Realistic Lion Portrait at Sunset",
+          "category": "Animal",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2603.jpg"
+      },
+      {
+          "id": 29,
+          "title": "Majestic Lion Portrait & Sunset Silhouette",
+          "category": "Animal",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2602.jpg"
+      },
+      {
+          "id": 30,
+          "title": "Geometric Sketchwork Lion Head",
+          "category": "Animal",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_1404.jpg"
+      },
+      {
+          "id": 31,
+          "title": "Mystic Blue-Eyed Owl & Lioness Wildlife Thigh Piece",
+          "category": "Animal",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9924.jpg"
+      },
+      {
+          "id": 32,
+          "title": "Graceful Leaping Wild Tiger Line Art",
+          "category": "Animal",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9277.jpg"
+      },
+      {
+          "id": 33,
+          "title": "Regal Peacock & Serpent Memorial Story",
+          "category": "Animal",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9506.jpg"
+      },
+      {
+          "id": 34,
+          "title": "Vibrant Color Emerald Peacock Thigh Artwork",
+          "category": "Animal",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_8867.jpg"
+      },
+      {
+          "id": 35,
+          "title": "Cybernetic Biomechanical Kraken with Red Geometry",
+          "category": "Animal",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2167.jpg"
+      },
+      {
+          "id": 36,
+          "title": "Ascending Mythical Phoenix Bird Fine-Line",
+          "category": "Animal",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2331.jpg"
+      },
+      {
+          "id": 37,
+          "title": "Neo-Traditional Dagger & Mouse Allegory",
+          "category": "Animal",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2832.jpg"
+      },
+      {
+          "id": 38,
+          "title": "Sacred Mount Kailash, Ganga & Lord Shiva Spiritual Sleeve",
+          "category": "Religious",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0191-1.jpg"
+      },
+      {
+          "id": 39,
+          "title": "Sacred Gurmukhi Insignia Shoulder Emblem",
+          "category": "Religious",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0177.jpg"
+      },
+      {
+          "id": 40,
+          "title": "Divine Archangel Warrior with Sword of Light",
+          "category": "Religious",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0633.jpg"
+      },
+      {
+          "id": 41,
+          "title": "Creation of Adam, Flaming Sacred Heart & Eye of God",
+          "category": "Religious",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2524.jpg"
+      },
+      {
+          "id": 42,
+          "title": "Geometric Sacred Heart & Radiant Sunburst",
+          "category": "Religious",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2522.jpg"
+      },
+      {
+          "id": 43,
+          "title": "Spartan Warrior & Polynesian Geometric Full Sleeve",
+          "category": "Sleeve",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_1020.jpg"
+      },
+      {
+          "id": 44,
+          "title": "Polynesian Tribal Geometric Blackwork Sleeve",
+          "category": "Sleeve",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9990.jpg"
+      },
+      {
+          "id": 45,
+          "title": "Wanderlust Nautical Compass & Global Coordinates Sleeve",
+          "category": "Sleeve",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_9727.jpg"
+      },
+      {
+          "id": 46,
+          "title": "Biomechanical Forearm 360 Wrap Perspective",
+          "category": "Sleeve",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2172.jpg"
+      },
+      {
+          "id": 47,
+          "title": "Symmetrical Shoulder Rose Trio with Pearls",
+          "category": "Sleeve",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_8941.jpg"
+      },
+      {
+          "id": 48,
+          "title": "Fine-Line Celestial Sun & Chandelier Pearls",
+          "category": "Minimal",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0752.jpg"
+      },
+      {
+          "id": 49,
+          "title": "Crescent Moon Floral & Starburst Line Art",
+          "category": "Minimal",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0749.jpg"
+      },
+      {
+          "id": 50,
+          "title": "Fine-Line Self-Love Angel Wings & Tiara",
+          "category": "Minimal",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0205.jpg"
+      },
+      {
+          "id": 51,
+          "title": "Dual Shaded Roses & Monarch Butterflies",
+          "category": "Minimal",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0468.jpg"
+      },
+      {
+          "id": 52,
+          "title": "Dark Brush Calligraphic Blade Sigil",
+          "category": "Calligraphy",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_1501.jpg"
+      },
+      {
+          "id": 53,
+          "title": "Sacred Gurmukhi Calligraphy Emblem",
+          "category": "Calligraphy",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0177.jpg"
+      },
+      {
+          "id": 54,
+          "title": "Japanese Serpentine Dragon with Crimson Glow",
+          "category": "Custom",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2264.jpg"
+      },
+      {
+          "id": 55,
+          "title": "Symmetrical Blackwork Sacred Flame Neck Piece",
+          "category": "Custom",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2055.jpg"
+      },
+      {
+          "id": 56,
+          "title": "Vibrant Color Peony & Rose Forearm Bouquet",
+          "category": "Custom",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0736.jpg"
+      },
+      {
+          "id": 57,
+          "title": "Cascading Lily Floral Thigh Vine",
+          "category": "Custom",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0653.jpg"
+      },
+      {
+          "id": 58,
+          "title": "Negative Space Peony Hand Bloom",
+          "category": "Custom",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0039.jpg"
+      },
+      {
+          "id": 59,
+          "title": "Japanese Peony & Dynamic Water Waves",
+          "category": "Custom",
+          "artist": "Jaspreet Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0046.jpg"
+      },
+      {
+          "id": 60,
+          "title": "Velvet Shaded Realism Hand Rose",
+          "category": "Custom",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0989.jpg"
+      },
+      {
+          "id": 61,
+          "title": "Biomechanical Octopus Tentacle Flow Detail",
+          "category": "Custom",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2165.jpg"
+      },
+      {
+          "id": 62,
+          "title": "Biomechanical Kraken Head & Siphon Detail",
+          "category": "Custom",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2170.jpg"
+      },
+      {
+          "id": 63,
+          "title": "Octopus Suction Cups & Cyber Red Circuitry",
+          "category": "Custom",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_2171.jpg"
+      },
+      {
+          "id": 64,
+          "title": "Master Inking Session with Single-Use Precision Cartridge",
+          "category": "Custom",
+          "artist": "Harminder Singh",
+          "src": "/images/cloudinary_tattoos/IMG_0768.jpg"
+      }
   ],
   studioImages: [
+    { src: "/images/cloudinary_tattoos/IMG_0768.jpg", caption: "Master Artist Harminder Singh Inking Precision Client Session" },
+    { src: "/images/cloudinary_tattoos/IMG_0769.jpg", caption: "Tattoo Villa Studio Inking Suite & Neon Atmosphere" },
     { src: "/images/studio/IMG_9200-1024x768.jpg", caption: "Premium Private Tattoo Consultation & Inking Suite" },
     { src: "/images/studio/IMG_9201-1024x768.jpg", caption: "Autoclave Sterilization Station & Medical-Grade Cleanliness" },
     { src: "/images/studio/IMG_9202-1024x768.jpg", caption: "Lajpat Nagar Central Market Studio Waiting Lounge" },

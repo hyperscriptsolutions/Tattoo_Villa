@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Eye, ArrowRight, Sparkles, Filter } from 'lucide-react';
+import { Eye, ArrowRight, Sparkles, Filter, Play } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SITE_DATA } from '../../data/siteData';
 import { fadeInUp, scaleUp } from '../../utils/animations';
@@ -10,6 +10,7 @@ export default function PortfolioMasonry({ onOpenLightbox }) {
 
   const categories = [
     'All',
+    'Videos',
     'Realism',
     'Portrait',
     'Sleeve',
@@ -58,7 +59,7 @@ export default function PortfolioMasonry({ onOpenLightbox }) {
               to="/gallery"
               className="inline-flex items-center gap-2 py-3 px-6 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs uppercase tracking-wider border border-zinc-700 hover:border-gold-500/30 transition-all shrink-0 self-start md:self-auto group shadow-md"
             >
-              <span>View Full Gallery (56+ Works)</span>
+              <span>View Full Gallery (64+ Works)</span>
               <ArrowRight className="w-4 h-4 text-gold-400 group-hover:translate-x-1.5 transition-transform duration-300" />
             </Link>
           </motion.div>
@@ -109,13 +110,19 @@ export default function PortfolioMasonry({ onOpenLightbox }) {
                 className="group relative rounded-2xl overflow-hidden bg-charcoal-950 border border-zinc-800/80 hover:border-gold-500/50 transition-colors duration-300 cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-gold-500/5"
               >
                 {/* Image Container with Aspect Ratio */}
-                <div className="aspect-[3/4] overflow-hidden bg-charcoal-900">
+                <div className="aspect-[3/4] overflow-hidden bg-charcoal-900 relative">
                   <img
                     src={item.src}
                     alt={item.title}
                     loading="lazy"
                     className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out filter contrast-105"
                   />
+                  {item.isVideo && (
+                    <div className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-black/80 border border-gold-500/40 text-gold-300 text-[10px] font-bold flex items-center gap-1.5 backdrop-blur-sm shadow-md">
+                      <Play className="w-3 h-3 fill-gold-400 text-gold-400" />
+                      <span>Reel</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Hover Overlay with Smooth Backdrop Fade */}
@@ -129,8 +136,17 @@ export default function PortfolioMasonry({ onOpenLightbox }) {
                   <p className="text-xs text-zinc-400 mt-1">Artist: {item.artist}</p>
 
                   <div className="mt-3 flex items-center gap-1.5 text-xs text-gold-400 font-semibold transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                    <Eye className="w-3.5 h-3.5" />
-                    <span>Tap to view full resolution</span>
+                    {item.isVideo ? (
+                      <>
+                        <Play className="w-3.5 h-3.5 fill-gold-400" />
+                        <span>Tap to watch process reel</span>
+                      </>
+                    ) : (
+                      <>
+                        <Eye className="w-3.5 h-3.5" />
+                        <span>Tap to view full resolution</span>
+                      </>
+                    )}
                   </div>
                 </div>
               </motion.div>

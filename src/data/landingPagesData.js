@@ -15,10 +15,10 @@ export const LANDING_PAGES_DATA = {
       { title: "Premium EU/FDA Certified Inks", desc: "Dynamic and World Famous inks for deep saturated blacks and rich colors that heal cleanly." }
     ],
     showcaseImages: [
-      { src: "/images/tattoos/1000001334-768x1024.jpeg", caption: "Hyper-realistic Greek Warrior by Harminder" },
-      { src: "/images/tattoos/IMG_2584-2-768x1024.jpeg", caption: "Lifelike Portraiture with Grey-Wash Shading" },
-      { src: "/images/tattoos/IMG_2644-768x1024.jpeg", caption: "Precision Fine-Line Floral by Jaspreet" },
-      { src: "/images/tattoos/1000017690-768x1024.jpeg", caption: "Full Arm Custom Composition Sleeve" }
+      { src: "/images/cloudinary_tattoos/IMG_0187.jpg", caption: "Spartan Full Armor Warrior by Harminder" },
+      { src: "/images/cloudinary_tattoos/IMG_0955.jpg", caption: "Lifelike Valkyrie Goddess with Grey-Wash Shading" },
+      { src: "/images/cloudinary_tattoos/IMG_0752.jpg", caption: "Precision Fine-Line Celestial Sun by Jaspreet" },
+      { src: "/images/cloudinary_tattoos/IMG_1020.jpg", caption: "Spartan & Polynesian Full Sleeve Project" }
     ],
     faqs: [
       { q: "Where is Tattoo Villa located in Delhi?", a: "We are conveniently located at K100 B, 2nd Floor, Opposite Domino's Pizza, Central Market, Lajpat Nagar II, New Delhi. Just 3 minutes walking distance from Lajpat Nagar Metro Station (Violet & Pink interchange lines)." },
@@ -58,7 +58,7 @@ export const LANDING_PAGES_DATA = {
     heroHeadline: "Your Vision. Handcrafted Exclusively for Your Body Flow.",
     subheadline: "No generic clip-art or repetitive catalog flash. Our master artists collaborate with you 1-on-1 to craft original bespoke tattoo illustrations that narrate your personal journey.",
     badge: "100% Original Illustrations • Free Concept Consultation",
-    heroImage: "/images/tattoos/IMG_2499-768x1024.jpeg",
+    heroImage: "/images/cloudinary_tattoos/IMG_2264.jpg",
     callout: "Have an abstract idea, a personal story, or an old tattoo you want to cover up? We turn concepts into breathtaking wearable art.",
     whyChooseHeadline: "Our Bespoke Design Process",
     benefits: [
@@ -68,10 +68,10 @@ export const LANDING_PAGES_DATA = {
       { title: "Anatomical Silhouette Harmony", desc: "We contour every line to accentuate your natural muscle structure, collarbone, spine, or forearm." }
     ],
     showcaseImages: [
-      { src: "/images/tattoos/IMG_2499-768x1024.jpeg", caption: "Bespoke Realistic Cover-Up Transformation" },
-      { src: "/images/tattoos/IMG_2512-768x1024.jpeg", caption: "Original Geometric Mandala & Sacred Geometry" },
-      { src: "/images/tattoos/1000011723-768x1024.jpeg", caption: "Narrative Arm Composition with Custom Contrast" },
-      { src: "/images/tattoos/IMG_2641-2-768x1024.jpeg", caption: "Wildlife & Geometric Hybrid Composition" }
+      { src: "/images/cloudinary_tattoos/IMG_2264.jpg", caption: "Japanese Serpentine Dragon with Crimson Glow" },
+      { src: "/images/cloudinary_tattoos/IMG_2167.jpg", caption: "Cybernetic Biomechanical Kraken & Red Geometry" },
+      { src: "/images/cloudinary_tattoos/IMG_0736.jpg", caption: "Vibrant Color Peony & Rose Forearm Bouquet" },
+      { src: "/images/cloudinary_tattoos/IMG_9990.jpg", caption: "Polynesian Tribal Geometric Blackwork Sleeve" }
     ],
     faqs: [
       { q: "How does the custom design consultation work?", a: "You share your reference photos, ideas, or sketches over WhatsApp or in person. Our artist drafts a concept mockup, adjusts sizes and details with your direct feedback, and ensures you are 100% in love with the stencil before inking." },
@@ -84,7 +84,7 @@ export const LANDING_PAGES_DATA = {
     heroHeadline: "Photorealistic Memorial & Icon Portraits in Delhi.",
     subheadline: "Portraits require zero margin for error. Master artist Harminder Singh captures soulful eyes, lifelike skin textures, and emotional nuances with photographic realism.",
     badge: "Specialist In Black & Grey Micro-Realism • 15+ Years Mastery",
-    heroImage: "/images/tattoos/IMG_2584-2-768x1024.jpeg",
+    heroImage: "/images/cloudinary_tattoos/IMG_0955.jpg",
     callout: "Immortalize your parents, children, spiritual gurus, or iconic legends with hyper-detailed realism that ages gracefully.",
     whyChooseHeadline: "The Science of Realistic Portrait Inking",
     benefits: [
@@ -94,10 +94,10 @@ export const LANDING_PAGES_DATA = {
       { title: "Longevity-Engineered Depth", desc: "Proper ink depth so the portrait remains clear, luminous, and legible even 20 years later." }
     ],
     showcaseImages: [
-      { src: "/images/tattoos/IMG_2584-2-768x1024.jpeg", caption: "Photorealistic Memorial Face with Micro-Shading" },
-      { src: "/images/tattoos/IMG_2588-768x1024.jpeg", caption: "Emotional Likeness with Soft Feathered Border" },
-      { src: "/images/tattoos/1000001334-768x1024.jpeg", caption: "Classical Sculpture Realism & Marble Texture" },
-      { src: "/images/tattoos/1000001335-768x1024.jpeg", caption: "Mythological Hero Character Portrait" }
+      { src: "/images/cloudinary_tattoos/IMG_0955.jpg", caption: "Valkyrie Goddess Realistic Facial Shading" },
+      { src: "/images/cloudinary_tattoos/IMG_2099.jpg", caption: "Mythological Poseidon Ocean God Forearm" },
+      { src: "/images/cloudinary_tattoos/IMG_2434.jpg", caption: "Guardian Angel Protecting Child Memorial" },
+      { src: "/images/cloudinary_tattoos/IMG_9295.jpg", caption: "Stairway to Heaven Family Memorial Sleeve" }
     ],
     faqs: [
       { q: "What makes a good portrait reference photo?", a: "A sharp photograph with clear natural lighting, defined shadows, and high detail around the eyes and lips produces the most stunning tattoo. If you only have older vintage photos, our artists can digitally restore them prior to tattooing." },
@@ -110,7 +110,7 @@ export const LANDING_PAGES_DATA = {
     heroHeadline: "Delicate, Ultra-Fine Single Needle Tattoos in Delhi.",
     subheadline: "Crisp micro-lines, understated elegance, botanical silhouettes, and subtle personal symbols crafted with gentle needle touch and minimal skin trauma.",
     badge: "Single Needle (1RL/3RL) Precision • Gentle & Low Pain",
-    heroImage: "/images/tattoos/IMG_2644-768x1024.jpeg",
+    heroImage: "/images/cloudinary_tattoos/IMG_0752.jpg",
     callout: "Looking for an understated, classy tattoo that feels dainty, feminine, or sharp? Perfect for first-timers and subtle aesthetic lovers.",
     whyChooseHeadline: "Why Fine-Line Tattoos Require Master Technique",
     benefits: [
@@ -120,10 +120,10 @@ export const LANDING_PAGES_DATA = {
       { title: "Discreet & Elegant Placements", desc: "Flawlessly proportioned for collarbones, inner wrists, ankles, ribs, fingers, or behind the ear." }
     ],
     showcaseImages: [
-      { src: "/images/tattoos/IMG_2644-768x1024.jpeg", caption: "Single-Needle Botanical Stems & Leaves" },
-      { src: "/images/tattoos/IMG_2645-768x1024.jpeg", caption: "Subtle Feather & Micro-Script Balance" },
-      { src: "/images/tattoos/IMG_2453-768x1024.jpeg", caption: "Minimalist Flowing Anatomical Calligraphy" },
-      { src: "/images/tattoos/IMG_2463-768x1024.jpeg", caption: "Dainty Collarbone Script Accent" }
+      { src: "/images/cloudinary_tattoos/IMG_0752.jpg", caption: "Fine-Line Celestial Sun & Chandelier Pearls" },
+      { src: "/images/cloudinary_tattoos/IMG_0749.jpg", caption: "Crescent Moon Floral & Starburst Line Art" },
+      { src: "/images/cloudinary_tattoos/IMG_0205.jpg", caption: "Single-Needle Angel Wings & Tiara" },
+      { src: "/images/cloudinary_tattoos/IMG_0468.jpg", caption: "Delicate Shaded Roses & Monarch Butterflies" }
     ],
     faqs: [
       { q: "Do fine-line tattoos hurt less than regular tattoos?", a: "Yes, significantly less! Because the needles are micro-fine and penetrate very shallowly, most first-timers describe the sensation as a light scratching." },
@@ -136,7 +136,7 @@ export const LANDING_PAGES_DATA = {
     heroHeadline: "Sacred Ink: Lord Shiva, Trishul, Mahakal & Vedic Mantras.",
     subheadline: "Celebrate faith and divine energy with authentic devotional body art. Certified Sanskrit and Gurmukhi script accuracy with powerful spiritual iconography.",
     badge: "Culturally Reverent • Verified Sanskrit & Gurmukhi Scriptures",
-    heroImage: "/images/tattoos/IMG_2582-768x1024.jpeg",
+    heroImage: "/images/cloudinary_tattoos/IMG_0191-1.jpg",
     callout: "Carry the divine blessings of Mahadev, Ganesha, Waheguru, or Buddha with respectful artistry and deep spiritual meaning.",
     whyChooseHeadline: "Devotion Meets Uncompromising Artistry",
     benefits: [
@@ -146,10 +146,10 @@ export const LANDING_PAGES_DATA = {
       { title: "Spiritual Atmosphere", desc: "A calm, meditative studio atmosphere that respects the sanctity of your devotional commitment." }
     ],
     showcaseImages: [
-      { src: "/images/tattoos/IMG_2582-768x1024.jpeg", caption: "Lord Shiva Trishul with Damru & Meditative Smoke" },
-      { src: "/images/tattoos/IMG_2450-768x1024.jpeg", caption: "Sacred Omkara with Deep Gradient Shading" },
-      { src: "/images/tattoos/1000008220-1-768x1024.jpeg", caption: "Spiritual Deity Devotional Composition" },
-      { src: "/images/tattoos/1000013247-1-768x1024.jpeg", caption: "Vedic Sanskrit Hymn with Sacred Geometry" }
+      { src: "/images/cloudinary_tattoos/IMG_0191-1.jpg", caption: "Mount Kailash, Ganga & Lord Shiva Spiritual Sleeve" },
+      { src: "/images/cloudinary_tattoos/IMG_0177.jpg", caption: "Sacred Gurmukhi Script Shoulder Insignia" },
+      { src: "/images/cloudinary_tattoos/IMG_0633.jpg", caption: "Divine Archangel Warrior with Sword of Light" },
+      { src: "/images/cloudinary_tattoos/IMG_2524.jpg", caption: "Creation of Adam, Sacred Heart & Eye of God" }
     ],
     faqs: [
       { q: "Can you help me design a custom Shiva Trishul tattoo?", a: "Yes, our artists have crafted hundreds of unique Mahakal and Trishul designs, integrating elements like the Damru, Rudraksha beads, Third Eye, and personal mantras." },
