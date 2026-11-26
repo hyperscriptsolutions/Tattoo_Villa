@@ -139,24 +139,6 @@ export default function HeroSection({ onOpenAppointmentModal }) {
               Explore Portfolio
             </Link>
           </motion.div>
-
-          {/* Studio Film Action */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-5"
-          >
-            <button
-              onClick={() => setIsReelModalOpen(true)}
-              className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-200 hover:text-gold-400 transition-colors py-2 px-4 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 backdrop-blur-md cursor-pointer group shadow-lg"
-            >
-              <span className="w-5 h-5 rounded-full bg-gold-500/30 text-gold-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
-              </span>
-              <span>Watch Studio Showreel (HD Video)</span>
-            </button>
-          </motion.div>
         </div>
 
         {/* Credibility Counter Grid */}
@@ -208,32 +190,6 @@ export default function HeroSection({ onOpenAppointmentModal }) {
         </motion.div>
       </div>
 
-      {/* =========================================================================
-          HERO VIDEO AMBIENT CONTROLS (Discreet Lower Right HUD)
-          ========================================================================= */}
-      <div className="absolute bottom-5 right-5 z-20 hidden md:flex items-center gap-2 bg-charcoal-950/90 backdrop-blur-md p-1.5 rounded-xl border border-zinc-700 text-xs text-zinc-300 shadow-xl">
-        <button
-          onClick={togglePlay}
-          className="p-2 rounded-lg hover:bg-zinc-800 hover:text-white transition-colors cursor-pointer"
-          title={isPlaying ? "Pause background video" : "Play background video"}
-          aria-label={isPlaying ? "Pause background video" : "Play background video"}
-        >
-          {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-current" />}
-        </button>
-
-        <button
-          onClick={toggleMute}
-          className="p-2 rounded-lg hover:bg-zinc-800 hover:text-white transition-colors cursor-pointer"
-          title={isMuted ? "Unmute video audio" : "Mute audio"}
-          aria-label={isMuted ? "Unmute video audio" : "Mute audio"}
-        >
-          {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-gold-400" />}
-        </button>
-
-        <span className="text-[10px] uppercase tracking-wider text-zinc-400 font-mono pr-2 pl-1">
-          {isPlaying ? 'Video Live' : 'Paused'}
-        </span>
-      </div>
 
       {/* =========================================================================
           FULL-SCREEN CINEMATIC SHOWREEL MODAL

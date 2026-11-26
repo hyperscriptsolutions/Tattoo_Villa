@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import StickyMobileBar from './components/StickyMobileBar';
+import StickyWhatsAppButton from './components/StickyWhatsAppButton';
 import AppointmentModal from './components/AppointmentModal';
 import LightboxModal from './components/LightboxModal';
 import HomePage from './pages/HomePage';
@@ -201,6 +202,9 @@ export default function App() {
 
       {/* Persistent Mobile Bottom Action Bar */}
       <StickyMobileBar onOpenAppointmentModal={handleOpenAppointmentModal} />
+
+      {/* Persistent Attractive Sticky WhatsApp Floating Widget */}
+      <StickyWhatsAppButton />
 
       {/* Global Interactive Modals */}
       <AppointmentModal

@@ -89,20 +89,32 @@ export default function LightboxModal({ isOpen, images, currentIndex, onClose, o
           >
             <AnimatePresence mode="wait">
               {current.videoUrl ? (
-                <motion.video
+                <motion.div
                   key={current.videoUrl}
-                  src={current.videoUrl}
-                  poster={current.src}
-                  controls
-                  autoPlay
-                  playsInline
-                  loop
                   initial={{ scale: 0.94, opacity: 0, y: 10 }}
                   animate={{ scale: 1, opacity: 1, y: 0 }}
                   exit={{ scale: 0.94, opacity: 0, y: -10 }}
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  className="max-h-[75vh] w-auto max-w-full rounded-xl shadow-2xl border border-zinc-800/80 bg-black"
-                />
+                  className="relative max-h-[75vh] w-auto max-w-full rounded-xl overflow-hidden shadow-2xl border border-zinc-800/80 bg-black flex items-center justify-center"
+                >
+                  <video
+                    key={current.videoUrl}
+                    poster={current.src}
+                    controls
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    preload="auto"
+                    className="max-h-[75vh] w-auto max-w-full object-contain"
+                  >
+                    <source src={current.videoUrl} type="video/mp4" />
+                    {current.cloudinaryVideoUrl && (
+                      <source src={current.cloudinaryVideoUrl} type="video/mp4" />
+                    )}
+                    Your browser does not support the video tag.
+                  </video>
+                </motion.div>
               ) : (
                 <motion.img
                   key={current.src || current}

@@ -8,48 +8,33 @@ import { fadeInUp, scaleUp } from '../../utils/animations';
 export default function ServicesGrid({ onOpenAppointmentModal }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const scrollContainerRef = useRef(null);
+  const containerRef = useRef(null);
+  const [cardWidth, setCardWidth] = useState(300);
   const services = SITE_DATA.services;
 
-  // Auto-scroll timer on mobile
+  // Responsive card width calculation (card + gap)
+  useEffect(() => {
+    const updateSize = () => {
+      if (typeof window !== 'undefined') {
+        const w = Math.min(window.innerWidth * 0.82, 310);
+        setCardWidth(w + 16);
+      }
+    };
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+  // Hardware-accelerated auto-advance timer
   useEffect(() => {
     if (isPaused) return;
 
-    const interval = setInterval(() => {
+    const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % services.length);
-    }, 3200);
+    }, 3400);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(timer);
   }, [isPaused, services.length]);
-
-  // Smooth scroll to target card whenever currentIndex changes
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const targetCard = container.children[currentIndex];
-    if (targetCard) {
-      const targetLeft = targetCard.offsetLeft - (container.clientWidth - targetCard.clientWidth) / 2;
-      container.scrollTo({
-        left: Math.max(0, targetLeft),
-        behavior: 'smooth'
-      });
-    }
-  }, [currentIndex]);
-
-  // Sync index on manual finger swipe
-  const handleScroll = () => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const scrollLeft = container.scrollLeft;
-    const cardWidth = container.children[0]?.clientWidth || 280;
-    const gap = 16;
-    const index = Math.round(scrollLeft / (cardWidth + gap));
-    if (index >= 0 && index < services.length && index !== currentIndex) {
-      setCurrentIndex(index);
-    }
-  };
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
@@ -82,34 +67,57 @@ export default function ServicesGrid({ onOpenAppointmentModal }) {
           </p>
         </motion.div>
 
-        {/* Mobile View: Full-Image Auto Side-Scrolling Carousel */}
+        {/* Mobile View: Full-Image Hardware-Accelerated Auto Side-Scrolling Carousel */}
         <div
-          className="md:hidden relative"
+          ref={containerRef}
+          className="md:hidden relative overflow-hidden -mx-4 px-4 pb-2"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onTouchStart={() => setIsPaused(true)}
           onTouchEnd={() => {
-            setTimeout(() => setIsPaused(false), 2200);
+            setTimeout(() => setIsPaused(false), 2500);
           }}
         >
-          {/* Scrollable Track */}
-          <div
-            ref={scrollContainerRef}
-            onScroll={handleScroll}
-            className="flex gap-4 overflow-x-auto pb-4 pt-1 px-4 -mx-4 scrollbar-none snap-x snap-mandatory scroll-smooth"
-            style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
+          {/* Framer Motion GPU Sliding Track */}
+          <motion.div
+            className="flex gap-4 cursor-grab active:cursor-grabbing will-change-transform"
+            drag="x"
+            dragConstraints={{
+              left: -((services.length - 1) * cardWidth),
+              right: 0
+            }}
+            dragElastic={0.15}
+            animate={{ x: -currentIndex * cardWidth }}
+            transition={{
+              type: "spring",
+              stiffness: 240,
+              damping: 26,
+              mass: 0.8
+            }}
+            onDragStart={() => setIsPaused(true)}
+            onDragEnd={(_, info) => {
+              setTimeout(() => setIsPaused(false), 2500);
+              const swipeThreshold = 35;
+              if (info.offset.x < -swipeThreshold && currentIndex < services.length - 1) {
+                setCurrentIndex((c) => c + 1);
+              } else if (info.offset.x > swipeThreshold && currentIndex > 0) {
+                setCurrentIndex((c) => c - 1);
+              }
+            }}
           >
             {services.map((service, idx) => (
               <div
                 key={service.id}
-                className="w-[82vw] max-w-[310px] shrink-0 snap-center glass-panel rounded-2xl overflow-hidden border border-zinc-800/90 shadow-xl flex flex-col bg-charcoal-900/80"
+                style={{ width: `${Math.max(260, cardWidth - 16)}px` }}
+                className="shrink-0 glass-panel rounded-2xl overflow-hidden border border-zinc-800/90 shadow-xl flex flex-col bg-charcoal-900/80 select-none"
               >
                 {/* Full Image like before */}
-                <div className="relative aspect-[4/5] overflow-hidden bg-charcoal-950">
+                <div className="relative aspect-[4/5] overflow-hidden bg-charcoal-950 pointer-events-none">
                   <img
                     src={service.image}
                     alt={service.title}
                     loading="lazy"
+                    draggable={false}
                     className="w-full h-full object-cover object-center filter contrast-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent"></div>
@@ -119,7 +127,7 @@ export default function ServicesGrid({ onOpenAppointmentModal }) {
                   </span>
                 </div>
 
-                {/* Card Content like before */}
+                {/* Card Content */}
                 <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="text-lg font-serif font-bold text-white mb-2">
@@ -149,10 +157,10 @@ export default function ServicesGrid({ onOpenAppointmentModal }) {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Mobile Carousel Controls & Progress Dots */}
-          <div className="flex items-center justify-between mt-3 px-1">
+          {/* Progress Dots & Navigation Arrows */}
+          <div className="flex items-center justify-between mt-4 px-1">
             <div className="flex items-center gap-1.5">
               {services.map((_, dotIdx) => (
                 <button
@@ -171,14 +179,14 @@ export default function ServicesGrid({ onOpenAppointmentModal }) {
             <div className="flex items-center gap-2">
               <button
                 onClick={handlePrev}
-                className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-700/80 text-zinc-300 flex items-center justify-center hover:text-white hover:border-gold-500/50 transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-700/80 text-zinc-300 flex items-center justify-center hover:text-white hover:border-gold-500/50 transition-colors cursor-pointer active:scale-95"
                 aria-label="Previous Specialty"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 onClick={handleNext}
-                className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-700/80 text-zinc-300 flex items-center justify-center hover:text-white hover:border-gold-500/50 transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-700/80 text-zinc-300 flex items-center justify-center hover:text-white hover:border-gold-500/50 transition-colors cursor-pointer active:scale-95"
                 aria-label="Next Specialty"
               >
                 <ChevronRight className="w-4 h-4" />

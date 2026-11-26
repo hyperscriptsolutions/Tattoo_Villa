@@ -88,7 +88,7 @@ export default function GalleryPage({ onOpenAppointmentModal, onOpenLightbox }) 
         {/* Animated Masonry Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 mb-16"
         >
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item, index) => (
@@ -101,9 +101,9 @@ export default function GalleryPage({ onOpenAppointmentModal, onOpenLightbox }) 
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 onClick={() => onOpenLightbox(filteredItems, index)}
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                className="group relative rounded-2xl overflow-hidden bg-charcoal-900 border border-zinc-800 hover:border-gold-500/50 transition-colors duration-300 cursor-pointer shadow-lg hover:shadow-2xl"
+                className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-charcoal-900 border border-zinc-800 hover:border-gold-500/50 transition-colors duration-300 cursor-pointer shadow-lg hover:shadow-2xl"
               >
-                <div className="aspect-[3/4] overflow-hidden relative">
+                <div className="aspect-[3/4] overflow-hidden relative bg-charcoal-950">
                   <img
                     src={item.src}
                     alt={item.title}
@@ -111,15 +111,26 @@ export default function GalleryPage({ onOpenAppointmentModal, onOpenLightbox }) 
                     className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out filter contrast-105"
                   />
                   {item.isVideo && (
-                    <div className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-black/80 border border-gold-500/40 text-gold-300 text-[10px] font-bold flex items-center gap-1.5 backdrop-blur-sm shadow-md">
-                      <Play className="w-3 h-3 fill-gold-400 text-gold-400" />
-                      <span>Reel</span>
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/55 backdrop-blur-sm border border-gold-400/70 flex items-center justify-center text-gold-400 shadow-lg group-hover:scale-110 transition-transform">
+                        <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-gold-400 ml-0.5" />
+                      </div>
                     </div>
                   )}
+
+                  {/* Mobile Always-Visible Compact Title Overlay */}
+                  <div className="sm:hidden absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 via-70% to-transparent pointer-events-none flex flex-col justify-end p-2.5">
+                    <span className="text-[9px] font-semibold text-gold-400 uppercase tracking-wider line-clamp-1">
+                      {item.category}
+                    </span>
+                    <h3 className="text-white font-serif font-bold text-xs leading-tight line-clamp-1 drop-shadow">
+                      {item.title}
+                    </h3>
+                  </div>
                 </div>
 
-                {/* Overlay with Smooth Backdrop Fade */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 backdrop-blur-[2px]">
+                {/* Desktop Hover Overlay with Smooth Backdrop Fade */}
+                <div className="hidden sm:flex absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex-col justify-end p-5 backdrop-blur-[2px]">
                   <span className="px-2.5 py-0.5 rounded-full bg-gold-500/25 text-gold-300 border border-gold-500/40 text-[10px] font-bold uppercase tracking-wider self-start mb-2 shadow-sm">
                     {item.category}
                   </span>
@@ -132,7 +143,7 @@ export default function GalleryPage({ onOpenAppointmentModal, onOpenLightbox }) 
                     {item.isVideo ? (
                       <>
                         <Play className="w-3.5 h-3.5 fill-gold-400" />
-                        <span>Click to watch process reel</span>
+                        <span>Click to watch process video</span>
                       </>
                     ) : (
                       <>
