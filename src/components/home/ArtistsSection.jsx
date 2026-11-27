@@ -30,8 +30,8 @@ export default function ArtistsSection({ onOpenAppointmentModal }) {
         </motion.div>
 
         {/* Artist Profiles Grid: Side-by-side with 100% full uncropped square photos & smooth reveals */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-          {SITE_DATA.artists.map((artist, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {SITE_DATA.artists.filter(artist => artist.role !== 'Founder').map((artist, idx) => (
             <motion.div
               key={artist.id}
               initial="hidden"
@@ -48,7 +48,7 @@ export default function ArtistsSection({ onOpenAppointmentModal }) {
                   src={artist.image}
                   alt={`${artist.name} - ${artist.role} at Tattoo Villa New Delhi`}
                   loading="lazy"
-                  className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out filter contrast-105"
+                  className={`w-full h-full object-cover ${artist.id === 'harmeet-singh' ? 'object-top' : 'object-center'} group-hover:scale-108 transition-transform duration-700 ease-out filter contrast-105`}
                 />
                 
                 {/* Subtle gradient vignette at bottom of image for contrast */}

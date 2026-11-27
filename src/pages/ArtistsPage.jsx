@@ -21,7 +21,7 @@ export default function ArtistsPage({ onOpenAppointmentModal, onOpenLightbox }) 
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            22+ Years Combined Mastery
+            29+ Years Combined Mastery
           </span>
           <h1 className="text-4xl sm:text-6xl font-serif font-black text-white tracking-tight mb-4">
             Master Artists of Tattoo Villa
@@ -46,7 +46,7 @@ export default function ArtistsPage({ onOpenAppointmentModal, onOpenLightbox }) 
                   <img
                     src={artist.image}
                     alt={`${artist.name} - ${artist.role} Tattoo Villa`}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 filter contrast-105"
+                    className={`w-full h-full object-cover ${artist.id === 'harmeet-singh' ? 'object-top' : 'object-center'} group-hover:scale-105 transition-transform duration-700 filter contrast-105`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent pointer-events-none"></div>
                   {artist.experience && (

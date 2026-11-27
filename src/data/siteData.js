@@ -64,7 +64,7 @@ export const SITE_DATA = {
     id: "founder",
     name: "Anand Singh",
     role: "Founder",
-    image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795692843/IMG_3462.heic",
+    image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto,c_crop,w_2400,h_2800,x_1000,y_1300/v1795692843/IMG_3462.heic",
     bio: "Anand Singh is the founder and visionary driving force behind Tattoo Villa. Established in 2010 in Central Market, Lajpat Nagar II, leading with a steadfast commitment to sterile hospital-grade procedures, uncompromising client care, and bespoke artistic integrity.",
     specialties: [
       "Studio Vision & Leadership",
@@ -79,7 +79,7 @@ export const SITE_DATA = {
       id: "anand-singh",
       name: "Anand Singh",
       role: "Founder",
-      image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795692843/IMG_3462.heic",
+      image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto,c_crop,w_2400,h_2800,x_1000,y_1300/v1795692843/IMG_3462.heic",
       bio: "Anand Singh is the founder and visionary driving force behind Tattoo Villa. Established in 2010 in Central Market, Lajpat Nagar II, leading with a steadfast commitment to sterile hospital-grade procedures, uncompromising client care, and bespoke artistic integrity.",
       specialties: [
         "Studio Vision & Leadership",
@@ -125,8 +125,9 @@ export const SITE_DATA = {
       id: "harmeet-singh",
       name: "Harmeet Singh",
       role: "Tattoo Artist",
-      image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795762985/IMG_2963.jpg",
-      bio: "Harmeet Singh is a skilled resident tattoo artist at Tattoo Villa, specializing in high-impact illustrative artwork, dynamic black and grey shading, custom neo-traditional concepts, and clean line precision. Harmeet works closely with every client to translate their creative vision into enduring, vibrant skin art.",
+      experience: "7+ Years",
+      image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto,c_fill,g_north,w_800,h_800/v1795762985/IMG_2963.jpg",
+      bio: "Harmeet Singh brings over 7 years of specialized artistry to Tattoo Villa, excelling in high-impact illustrative artwork, dynamic black and grey shading, custom neo-traditional concepts, and clean line precision. Harmeet works closely with every client to translate their creative vision into enduring, vibrant skin art.",
       specialties: [
         "Illustrative & Neo-Traditional Tattoos",
         "Black & Grey Shading & High Contrast",

@@ -79,17 +79,18 @@ export default function HeroSection({ onOpenAppointmentModal }) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-charcoal-950/90 border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-semibold tracking-wide mb-5 shadow-xl backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-charcoal-950/90 border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-semibold tracking-wide mb-5 shadow-xl backdrop-blur-sm whitespace-nowrap"
           >
-            <span className="flex h-2 w-2 relative">
+            <span className="flex h-2 w-2 relative shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span>
             </span>
-            <Award className="w-3.5 h-3.5 text-gold-400" />
+            <Award className="w-3.5 h-3.5 text-gold-400 shrink-0" />
             <span>Award-Winning Custom Studio Delhi</span>
-            <span className="text-zinc-500 hidden sm:inline">•</span>
-            <span className="text-zinc-200 hidden sm:inline flex items-center gap-1 font-medium">
-              <Star className="w-3.5 h-3.5 fill-gold-400 text-gold-400" /> 4.9★ (380+ Verified Reviews)
+            <span className="text-zinc-500 hidden sm:inline shrink-0">•</span>
+            <span className="text-zinc-200 hidden sm:inline-flex items-center gap-1.5 font-medium shrink-0">
+              <Star className="w-3.5 h-3.5 fill-gold-400 text-gold-400 shrink-0" />
+              <span>4.9★ (380+ Verified Reviews)</span>
             </span>
           </motion.div>
 

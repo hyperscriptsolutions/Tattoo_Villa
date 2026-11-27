@@ -36,7 +36,7 @@ export default function AboutPage({ onOpenAppointmentModal }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
           <div className="rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl relative aspect-square bg-charcoal-900">
             <img
-              src="https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795692843/IMG_3462.heic"
+              src="https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto,c_crop,w_2400,h_2800,x_1000,y_1300/v1795692843/IMG_3462.heic"
               alt="Anand Singh - Founder at Tattoo Villa"
               className="w-full h-full object-cover object-center filter contrast-105"
             />
