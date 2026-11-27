@@ -30,7 +30,7 @@ export default function ArtistsSection({ onOpenAppointmentModal }) {
         </motion.div>
 
         {/* Artist Profiles Grid: Side-by-side with 100% full uncropped square photos & smooth reveals */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {SITE_DATA.artists.map((artist, idx) => (
             <motion.div
               key={artist.id}

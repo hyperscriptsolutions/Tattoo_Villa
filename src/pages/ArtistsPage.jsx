@@ -7,8 +7,8 @@ export default function ArtistsPage({ onOpenAppointmentModal, onOpenLightbox }) 
   return (
     <div className="py-12 sm:py-20 bg-charcoal-950">
       <SEOHead
-        title="Our Artists | Master Inkers Harminder Singh & Jaspreet Singh"
-        description="Meet master tattoo artists Harminder Singh (15+ yrs, realism & portraits) and Jaspreet Singh (7+ yrs, fine-line & Japanese) at Tattoo Villa Delhi."
+        title="Our Artists | Master Inkers Harminder, Jaspreet & Harmeet Singh"
+        description="Meet resident tattoo artists Harminder Singh, Jaspreet Singh, and Harmeet Singh at Tattoo Villa Delhi. Custom realism, fine-line, Japanese, and illustrative tattoos."
         canonicalUrl="/artists"
         breadcrumbs={[
           { name: "Home", path: "/" },

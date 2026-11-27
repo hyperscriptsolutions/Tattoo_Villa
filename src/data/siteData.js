@@ -120,6 +120,21 @@ export const SITE_DATA = {
         "Micro-Realism & Flora/Fauna"
       ],
       quote: "Every microscopic line matters. Patience and precision turn simple thoughts into timeless elegance."
+    },
+    {
+      id: "harmeet-singh",
+      name: "Harmeet Singh",
+      role: "Tattoo Artist",
+      image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795762985/IMG_2963.jpg",
+      bio: "Harmeet Singh is a skilled resident tattoo artist at Tattoo Villa, specializing in high-impact illustrative artwork, dynamic black and grey shading, custom neo-traditional concepts, and clean line precision. Harmeet works closely with every client to translate their creative vision into enduring, vibrant skin art.",
+      specialties: [
+        "Illustrative & Neo-Traditional Tattoos",
+        "Black & Grey Shading & High Contrast",
+        "Custom Concept Designs & Stenciling",
+        "Geometric & Fine-Line Artistry",
+        "Cover-ups & Tattoo Enhancements"
+      ],
+      quote: "Every tattoo is a personal journey. Our craft is transforming your inner vision into permanent, living art."
     }
   ],
   awardsNarrative: {
