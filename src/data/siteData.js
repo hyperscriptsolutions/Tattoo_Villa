@@ -62,10 +62,10 @@ export const SITE_DATA = {
   },
   founder: {
     id: "founder",
-    name: "Founder",
+    name: "Anand Singh",
     role: "Founder",
     image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795692843/IMG_3462.heic",
-    bio: "The founder and visionary driving force behind Tattoo Villa. Established in 2010 in Central Market, Lajpat Nagar II, leading with a steadfast commitment to sterile hospital-grade procedures, uncompromising client care, and bespoke artistic integrity.",
+    bio: "Anand Singh is the founder and visionary driving force behind Tattoo Villa. Established in 2010 in Central Market, Lajpat Nagar II, leading with a steadfast commitment to sterile hospital-grade procedures, uncompromising client care, and bespoke artistic integrity.",
     specialties: [
       "Studio Vision & Leadership",
       "Hospital-Grade Sterile Protocols",
@@ -76,11 +76,11 @@ export const SITE_DATA = {
   },
   artists: [
     {
-      id: "founder",
-      name: "Founder",
+      id: "anand-singh",
+      name: "Anand Singh",
       role: "Founder",
       image: "https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795692843/IMG_3462.heic",
-      bio: "The founder and visionary driving force behind Tattoo Villa. Established in 2010 in Central Market, Lajpat Nagar II, leading with a steadfast commitment to sterile hospital-grade procedures, uncompromising client care, and bespoke artistic integrity.",
+      bio: "Anand Singh is the founder and visionary driving force behind Tattoo Villa. Established in 2010 in Central Market, Lajpat Nagar II, leading with a steadfast commitment to sterile hospital-grade procedures, uncompromising client care, and bespoke artistic integrity.",
       specialties: [
         "Studio Vision & Leadership",
         "Hospital-Grade Sterile Protocols",

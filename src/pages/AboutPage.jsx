@@ -37,7 +37,7 @@ export default function AboutPage({ onOpenAppointmentModal }) {
           <div className="rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl relative aspect-square bg-charcoal-900">
             <img
               src="https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795692843/IMG_3462.heic"
-              alt="Founder at Tattoo Villa"
+              alt="Anand Singh - Founder at Tattoo Villa"
               className="w-full h-full object-cover object-center filter contrast-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -46,7 +46,7 @@ export default function AboutPage({ onOpenAppointmentModal }) {
                 Founder
               </span>
               <h3 className="text-2xl font-serif font-bold text-white mt-2">
-                Founder of Tattoo Villa
+                Anand Singh
               </h3>
               <p className="text-xs text-zinc-300">Founder & Visionary</p>
             </div>
@@ -57,7 +57,7 @@ export default function AboutPage({ onOpenAppointmentModal }) {
               Turning Passion Into a Living Legacy
             </h2>
             <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
-              Our journey began 15 years ago when the founder of Tattoo Villa set out to transform a deep passion for body art into an elite custom tattoo sanctuary. Recognizing a lack of true custom illustration and strict sterile environments in the local market, Tattoo Villa was established in the vibrant heart of Central Market, Lajpat Nagar II.
+              Our journey began 15 years ago when founder Anand Singh set out to transform a deep passion for body art into an elite custom tattoo sanctuary. Recognizing a lack of true custom illustration and strict sterile environments in the local market, Tattoo Villa was established in the vibrant heart of Central Market, Lajpat Nagar II.
             </p>
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
               Joined by master tattoo artist Harminder Singh and lead artist Jaspreet Singh (7+ yrs), the studio established a reputation for pushing technical boundaries: complex photo-realism, fine-line single needle precision, intricate dotwork mandalas, and culturally reverent spiritual compositions.

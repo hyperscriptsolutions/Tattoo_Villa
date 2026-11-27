@@ -40,7 +40,7 @@ export default function AboutSection({ onOpenAppointmentModal }) {
               >
                 <img
                   src="https://res.cloudinary.com/ozrdoi7q/image/upload/f_auto,q_auto/v1795692843/IMG_3462.heic"
-                  alt="Founder of Tattoo Villa Delhi"
+                  alt="Anand Singh - Founder of Tattoo Villa Delhi"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out filter contrast-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
@@ -50,8 +50,9 @@ export default function AboutSection({ onOpenAppointmentModal }) {
                     Founder
                   </span>
                   <h4 className="text-white font-serif text-xl sm:text-2xl font-bold mt-2">
-                    Founder of Tattoo Villa
+                    Anand Singh
                   </h4>
+                  <p className="text-xs text-zinc-300">Founder & Visionary</p>
                 </div>
               </motion.div>
 
@@ -100,7 +101,7 @@ export default function AboutSection({ onOpenAppointmentModal }) {
             </h2>
 
             <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
-              At <strong className="text-white font-semibold">Tattoo Villa</strong>, our journey began over 15 years ago when the founder of Tattoo Villa turned a lifelong passion for fine arts and human anatomy into a world-class tattooing sanctuary in New Delhi.
+              At <strong className="text-white font-semibold">Tattoo Villa</strong>, our journey began over 15 years ago when founder Anand Singh turned a lifelong passion for fine arts and human anatomy into a world-class tattooing sanctuary in New Delhi.
             </p>
 
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
