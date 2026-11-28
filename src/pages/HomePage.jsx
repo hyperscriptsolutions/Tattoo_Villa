@@ -44,7 +44,10 @@ export default function HomePage({ onOpenAppointmentModal, onOpenLightbox }) {
 
       <HeroSection onOpenAppointmentModal={onOpenAppointmentModal} />
       <TrustSection />
-      <ServicesGrid onOpenAppointmentModal={onOpenAppointmentModal} />
+      <ServicesGrid
+        onOpenAppointmentModal={onOpenAppointmentModal}
+        onOpenLightbox={onOpenLightbox}
+      />
       <PortfolioMasonry onOpenLightbox={onOpenLightbox} />
       <AboutSection onOpenAppointmentModal={onOpenAppointmentModal} />
       <ArtistsSection onOpenAppointmentModal={onOpenAppointmentModal} />

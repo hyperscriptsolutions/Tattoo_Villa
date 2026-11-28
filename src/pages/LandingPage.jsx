@@ -40,7 +40,7 @@ export default function LandingPage({ onOpenAppointmentModal, onOpenLightbox }) 
               className="h-10 sm:h-12 w-auto object-contain filter drop-shadow-md"
             />
             <div className="flex flex-col">
-              <span className="font-display font-extrabold text-base sm:text-lg tracking-wider text-white leading-none">
+              <span className="font-vintage text-base sm:text-lg tracking-wider text-white leading-tight">
                 TATTOO VILLA
               </span>
               <span className="text-[10px] tracking-widest uppercase text-gold-400 font-semibold mt-1">

@@ -22,7 +22,7 @@ export default function Footer({ onOpenAppointmentModal }) {
                 className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-lg"
               />
               <div className="flex flex-col">
-                <span className="font-display font-extrabold text-xl sm:text-2xl tracking-wider text-white group-hover:text-gold-400 transition-colors leading-none">
+                <span className="font-vintage text-xl sm:text-2xl tracking-wider text-white group-hover:text-gold-400 transition-colors leading-tight">
                   TATTOO VILLA
                 </span>
                 <span className="text-[10px] tracking-widest uppercase text-gold-400 font-semibold mt-1">

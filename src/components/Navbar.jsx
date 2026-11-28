@@ -146,10 +146,10 @@ export default function Navbar({ onOpenAppointmentModal }) {
               className="h-10 sm:h-12 md:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-md"
             />
             <div className="flex flex-col">
-              <span className="font-display font-extrabold text-base sm:text-lg tracking-wider text-white group-hover:text-gold-400 transition-colors leading-none">
+              <span className="font-vintage text-base sm:text-lg tracking-wider text-white group-hover:text-gold-400 transition-colors leading-tight">
                 TATTOO VILLA
               </span>
-              <span className="text-[10px] tracking-widest uppercase text-gold-400 font-semibold mt-1">
+              <span className="text-[10px] tracking-widest uppercase text-gold-400 font-semibold mt-0.5">
                 New Delhi • Est. 2010
               </span>
             </div>

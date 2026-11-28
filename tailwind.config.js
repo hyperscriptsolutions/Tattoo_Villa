@@ -32,6 +32,7 @@ export default {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
         display: ['"Cinzel"', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        vintage: ['"Rye"', '"Sancreek"', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'radial-gradient-dark': 'radial-gradient(circle at 50% 0%, rgba(197, 155, 39, 0.08) 0%, rgba(12, 12, 14, 0) 70%)',
