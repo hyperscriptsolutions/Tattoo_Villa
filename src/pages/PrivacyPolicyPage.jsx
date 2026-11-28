@@ -50,7 +50,7 @@ export default function PrivacyPolicyPage() {
             <p>
               If you have any questions regarding your data privacy, please reach out to us at:
               <br />
-              <strong className="text-white">Email:</strong> tattoovilla01@gmail.com
+              <strong className="text-white">Email:</strong> tattoovilla1@gmail.com
               <br />
               <strong className="text-white">Address:</strong> K100 B, 2nd Floor, Central Market, Lajpat Nagar II, New Delhi 110024
             </p>

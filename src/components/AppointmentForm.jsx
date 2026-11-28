@@ -121,9 +121,6 @@ export default function AppointmentForm({
     setIsSubmitting(true);
 
     try {
-      // Simulate real asynchronous submission to lead management / API
-      await new Promise(resolve => setTimeout(resolve, 800));
-
       const utms = getStoredUtmParameters();
       const bookingId = `TV-DEL-${Math.floor(100000 + Math.random() * 900000)}`;
 
@@ -135,18 +132,53 @@ export default function AppointmentForm({
       };
 
       // Store in localStorage for persistence
-      const existing = JSON.parse(localStorage.getItem('tattoo_villa_bookings') || '[]');
-      existing.push(bookingRecord);
-      localStorage.setItem('tattoo_villa_bookings', JSON.stringify(existing));
+      try {
+        const existing = JSON.parse(localStorage.getItem('tattoo_villa_bookings') || '[]');
+        existing.push(bookingRecord);
+        localStorage.setItem('tattoo_villa_bookings', JSON.stringify(existing));
+      } catch (err) {
+        console.error('Storage error:', err);
+      }
 
       // Track Google Ads / Analytics Conversion
-      trackAppointmentSubmit(formData);
-      trackAppointmentConfirmed(bookingId, {
-        tattoo_category: formData.tattooType,
-        customer_name: formData.name
-      });
+      try {
+        trackAppointmentSubmit(formData);
+        trackAppointmentConfirmed(bookingId, {
+          tattoo_category: formData.tattooType,
+          customer_name: formData.name
+        });
+      } catch (err) {
+        console.error('Analytics error:', err);
+      }
 
-      // Trigger Celebration Confetti
+      // Directly send booking info to studio email tattoovilla1@gmail.com
+      try {
+        await fetch("https://formsubmit.co/ajax/tattoovilla1@gmail.com", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: `New Tattoo Consultation Booking: ${bookingRecord.name} (${bookingId})`,
+            _template: 'table',
+            "Booking Reference": bookingId,
+            "Client Name": bookingRecord.name,
+            "Mobile Phone": bookingRecord.phone,
+            "Studio Location": bookingRecord.location,
+            "Tattoo Category": bookingRecord.tattooType,
+            "Preferred Date": bookingRecord.date,
+            "Placement Area": bookingRecord.placement || 'Not specified',
+            "Tattoo Idea & Details": bookingRecord.description || 'Not specified',
+            "Reference Image Attached": bookingRecord.imageName || 'None',
+            "Submission Time": new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+          })
+        });
+      } catch (emailErr) {
+        console.warn('Direct email dispatch note:', emailErr);
+      }
+
+      // Trigger celebratory confetti
       confetti({
         particleCount: 80,
         spread: 60,
@@ -156,14 +188,6 @@ export default function AppointmentForm({
 
       setSubmittedBooking(bookingRecord);
       if (onSuccessCallback) onSuccessCallback(bookingRecord);
-
-      // Automatically launch WhatsApp with all form details directly to 98181 90412
-      const waUrl = getWhatsAppDirectLink(bookingRecord);
-      try {
-        window.open(waUrl, '_blank', 'noopener,noreferrer');
-      } catch (err) {
-        console.warn('Auto WhatsApp redirect prevented by browser pop-up blocker', err);
-      }
     } catch (err) {
       console.error('Booking submission error:', err);
       setErrors(prev => ({ ...prev, form: 'Submission failed. Please call or WhatsApp us directly.' }));
@@ -186,7 +210,15 @@ export default function AppointmentForm({
 ${record.placement ? `• *Placement Area:* ${record.placement}\n` : ''}${record.description ? `• *Tattoo Idea & Details:* ${record.description}\n` : ''}${record.imageName ? `• *Reference Attached:* ${record.imageName}\n` : ''}
 Hi Tattoo Villa, I just scheduled an appointment request on your website. Please confirm artist availability!`;
 
-    return `https://wa.me/${waTarget}?text=${encodeURIComponent(text)}`;
+    const encoded = encodeURIComponent(text);
+    const isMobile = typeof navigator !== 'undefined' && /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+
+    // On mobile, directly trigger the native WhatsApp app scheme to skip Meta's "Open app / Continue to Web" intermediate page
+    if (isMobile) {
+      return `whatsapp://send?phone=${waTarget}&text=${encoded}`;
+    }
+    // On desktop browsers, open WhatsApp Web chat directly without showing the preview landing screen
+    return `https://web.whatsapp.com/send?phone=${waTarget}&text=${encoded}`;
   };
 
   if (submittedBooking) {
@@ -240,7 +272,7 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
             className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg hover:shadow-emerald-600/30 text-sm"
           >
             <MessageSquare className="w-5 h-5" />
-            Send Details to WhatsApp (+91 98181 90412)
+            Chat with Artist on WhatsApp (+91 98181 90412)
           </a>
 
           <a
@@ -251,6 +283,10 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
             Call Studio Directly: {phoneDisplay}
           </a>
         </div>
+
+        <p className="text-[11px] text-zinc-400 mt-5">
+          ✓ Your booking details have been sent directly to the studio (tattoovilla1@gmail.com). Our team will call/WhatsApp you shortly to confirm artist timing.
+        </p>
 
         <p className="text-[11px] text-zinc-500 mt-5">
           Our studio manager will also call you back within 2-4 business hours to confirm your time slot and artist assignment.

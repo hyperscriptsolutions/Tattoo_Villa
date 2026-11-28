@@ -30,7 +30,7 @@ export const SITE_DATA = {
         { display: "+91 93115 11336", raw: "+919311511336", isPrimary: false, isWhatsApp: false }
       ],
       whatsappNumber: "919818190412",
-      email: "tattoovilla01@gmail.com",
+      email: "tattoovilla1@gmail.com",
       mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.743283294719!2d77.24108877549887!3d28.57747807569476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce32204555555%3A0x6b815ef98a96e95!2sTattoo%20Villa!5e0!3m2!1sen!2sin!4v1740000000000!5m2!1sen!2sin",
       mapDirectLink: "https://www.google.com/maps/search/?api=1&query=Tattoo+Villa+Central+Market+Lajpat+Nagar+II+New+Delhi+Delhi+110024",
       hours: "11:30 AM – 9:30 PM (Tue–Sun, Mon Closed)",
@@ -53,7 +53,7 @@ export const SITE_DATA = {
       phone: "+61-478311912",
       phoneDisplay: "+61 478 311 912",
       phoneRaw: "+61478311912",
-      email: "tattoovilla01@gmail.com",
+      email: "tattoovilla1@gmail.com",
       whatsappLink: "https://wa.me/61478311912?text=Hi%20Tattoo%20Villa%20Australia%2C%20I%20would%20like%20to%20inquire%20about%20a%20tattoo.",
       mapDirectLink: "https://maps.google.com/?q=13+Ornament+Ave+Tarneit+VIC+3029+Australia",
       hours: "By Prior Consultation & Appointment",

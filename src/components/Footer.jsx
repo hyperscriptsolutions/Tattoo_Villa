@@ -178,8 +178,8 @@ export default function Footer({ onOpenAppointmentModal }) {
               <p className="text-xs text-zinc-400 mb-2 leading-relaxed">
                 Direct artist correspondence, custom stencils & global inquiries:
               </p>
-              <a href="mailto:tattoovilla01@gmail.com" className="text-xs text-gold-400 hover:underline font-bold block">
-                tattoovilla01@gmail.com
+              <a href="mailto:tattoovilla1@gmail.com" className="text-xs text-gold-400 hover:underline font-bold block">
+                tattoovilla1@gmail.com
               </a>
             </div>
           </div>

@@ -85,8 +85,6 @@ export default function CourseApplicationForm({
     setIsSubmitting(true);
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 800));
-
       const utms = getStoredUtmParameters();
       const applicationId = `TV-ACAD-${Math.floor(100000 + Math.random() * 900000)}`;
 
@@ -98,17 +96,52 @@ export default function CourseApplicationForm({
       };
 
       // Store in localStorage
-      const existing = JSON.parse(localStorage.getItem('tattoo_villa_course_applications') || '[]');
-      existing.push(record);
-      localStorage.setItem('tattoo_villa_course_applications', JSON.stringify(existing));
+      try {
+        const existing = JSON.parse(localStorage.getItem('tattoo_villa_course_applications') || '[]');
+        existing.push(record);
+        localStorage.setItem('tattoo_villa_course_applications', JSON.stringify(existing));
+      } catch (err) {
+        console.error('Storage error:', err);
+      }
 
       // Track analytics
-      trackAppointmentSubmit(formData);
-      trackAppointmentConfirmed(applicationId, {
-        course_name: formData.selectedCourse,
-        applicant_name: formData.name
-      });
+      try {
+        trackAppointmentSubmit(formData);
+        trackAppointmentConfirmed(applicationId, {
+          course_name: formData.selectedCourse,
+          applicant_name: formData.name
+        });
+      } catch (err) {
+        console.error('Analytics error:', err);
+      }
 
+      // Directly send course application to studio email tattoovilla1@gmail.com
+      try {
+        await fetch("https://formsubmit.co/ajax/tattoovilla1@gmail.com", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: `New Tattoo Academy Application: ${record.name} (${applicationId})`,
+            _template: 'table',
+            "Application ID": applicationId,
+            "Applicant Name": record.name,
+            "Mobile Phone": record.phone,
+            "Email Address": record.email || 'Not provided',
+            "Selected Course": record.selectedCourse,
+            "Experience Level": record.experienceLevel,
+            "Preferred Batch": record.preferredBatch,
+            "Notes / Questions": record.notes || 'None',
+            "Submission Time": new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+          })
+        });
+      } catch (emailErr) {
+        console.warn('Course email dispatch note:', emailErr);
+      }
+
+      // Trigger celebratory confetti
       confetti({
         particleCount: 80,
         spread: 60,
@@ -118,14 +151,6 @@ export default function CourseApplicationForm({
 
       setSubmittedApplication(record);
       if (onSuccessCallback) onSuccessCallback(record);
-
-      // Automatically launch WhatsApp with all course application info directly to 98181 90412
-      const waUrl = getWhatsAppLink(record);
-      try {
-        window.open(waUrl, '_blank', 'noopener,noreferrer');
-      } catch (err) {
-        console.warn('Auto WhatsApp popup prevented by browser, direct button displayed', err);
-      }
     } catch (err) {
       console.error('Course application error:', err);
       setErrors(prev => ({ ...prev, form: 'Submission failed. Please call or WhatsApp our academy coordinator directly.' }));
@@ -148,7 +173,15 @@ ${record.email ? `• *Email:* ${record.email}\n` : ''}• *Selected Course:* ${
 ${record.notes ? `• *Questions/Notes:* ${record.notes}\n` : ''}
 Hi Tattoo Villa Academy, I just submitted an application for your tattoo training course. Please share the complete syllabus brochure and fee structure!`;
 
-    return `https://wa.me/${waTarget}?text=${encodeURIComponent(text)}`;
+    const encoded = encodeURIComponent(text);
+    const isMobile = typeof navigator !== 'undefined' && /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+
+    // On mobile, directly trigger the native WhatsApp app scheme to skip Meta's "Open app / Continue to Web" intermediate page
+    if (isMobile) {
+      return `whatsapp://send?phone=${waTarget}&text=${encoded}`;
+    }
+    // On desktop browsers, open WhatsApp Web chat directly without showing the preview landing screen
+    return `https://web.whatsapp.com/send?phone=${waTarget}&text=${encoded}`;
   };
 
   if (submittedApplication) {
@@ -195,7 +228,7 @@ Hi Tattoo Villa Academy, I just submitted an application for your tattoo trainin
             className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg hover:shadow-emerald-600/30 text-sm"
           >
             <MessageSquare className="w-5 h-5" />
-            Send Application to WhatsApp (+91 98181 90412)
+            Chat with Academy Coordinator on WhatsApp (+91 98181 90412)
           </a>
 
           <a
@@ -206,6 +239,10 @@ Hi Tattoo Villa Academy, I just submitted an application for your tattoo trainin
             Call Academy Coordinator: {SITE_DATA.contact.delhi.phones[0].display}
           </a>
         </div>
+
+        <p className="text-[11px] text-zinc-400 mt-5">
+          ✓ Application sent directly to tattoovilla1@gmail.com. We will email/WhatsApp you the syllabus brochure and fee structure shortly.
+        </p>
 
         <p className="text-[11px] text-zinc-500 mt-5">
           Our senior mentor will review your application and get in touch within 2-4 business hours to discuss batch availability and syllabus details.
