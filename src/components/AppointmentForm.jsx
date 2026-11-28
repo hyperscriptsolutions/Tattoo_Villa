@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, Upload, CheckCircle2, AlertCircle, Sparkles, Send, MessageSquare, PhoneCall, ShieldCheck } from 'lucide-react';
+import { Calendar, Clock, CheckCircle2, AlertCircle, Sparkles, Send, MessageSquare, PhoneCall, ShieldCheck } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { SITE_DATA } from '../data/siteData';
 import { trackAppointmentSubmit, trackAppointmentConfirmed, trackWhatsAppClick, getStoredUtmParameters } from '../utils/analytics';
@@ -43,10 +43,7 @@ export default function AppointmentForm({
     tattooType: getMatchedCategory(initialCategory),
     date: '',
     placement: '',
-    description: '',
-    imageFile: null,
-    imagePreview: null,
-    imageName: ''
+    description: ''
   });
 
   const [errors, setErrors] = useState({});
@@ -59,33 +56,6 @@ export default function AppointmentForm({
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
-  };
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    if (!file.type.startsWith('image/')) {
-      setErrors(prev => ({ ...prev, image: 'Please upload an image file (PNG, JPG, or WEBP).' }));
-      return;
-    }
-
-    if (file.size > 10 * 1024 * 1024) {
-      setErrors(prev => ({ ...prev, image: 'File size must be under 10MB.' }));
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setFormData(prev => ({
-        ...prev,
-        imageFile: file,
-        imagePreview: reader.result,
-        imageName: file.name
-      }));
-      setErrors(prev => ({ ...prev, image: '' }));
-    };
-    reader.readAsDataURL(file);
   };
 
   const validate = () => {
@@ -170,7 +140,6 @@ export default function AppointmentForm({
             "Preferred Date": bookingRecord.date,
             "Placement Area": bookingRecord.placement || 'Not specified',
             "Tattoo Idea & Details": bookingRecord.description || 'Not specified',
-            "Reference Image Attached": bookingRecord.imageName || 'None',
             "Submission Time": new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
           })
         });
@@ -207,8 +176,7 @@ export default function AppointmentForm({
 • *Studio Location:* ${record.location}
 • *Tattoo Category:* ${record.tattooType}
 • *Preferred Date:* ${record.date}
-${record.placement ? `• *Placement Area:* ${record.placement}\n` : ''}${record.description ? `• *Tattoo Idea & Details:* ${record.description}\n` : ''}${record.imageName ? `• *Reference Attached:* ${record.imageName}\n` : ''}
-Hi Tattoo Villa, I just scheduled an appointment request on your website. Please confirm artist availability!`;
+${record.placement ? `• *Placement Area:* ${record.placement}\n` : ''}${record.description ? `• *Tattoo Idea & Details:* ${record.description}\n` : ''}Hi Tattoo Villa, I just scheduled an appointment request on your website. Please confirm artist availability!`;
 
     const encoded = encodeURIComponent(text);
     const isMobile = typeof navigator !== 'undefined' && /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
@@ -426,41 +394,6 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
           placeholder="Describe your design vision, approximate dimensions, or whether this is a cover-up (optional)..."
           className="w-full px-4 py-3 rounded-xl bg-charcoal-900 border border-zinc-700/80 focus:border-gold-500 text-white placeholder-zinc-500 text-sm outline-none transition-colors resize-none"
         ></textarea>
-      </div>
-
-      {/* Reference Image Upload */}
-      <div>
-        <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
-          Upload Reference Image (Optional)
-        </label>
-        <div className="relative border-2 border-dashed border-zinc-700/70 hover:border-gold-500/60 rounded-xl p-4 text-center cursor-pointer transition-colors bg-charcoal-900/50">
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-          />
-          {formData.imagePreview ? (
-            <div className="flex items-center justify-center gap-3">
-              <img
-                src={formData.imagePreview}
-                alt="Upload preview"
-                className="w-12 h-12 object-cover rounded-lg border border-gold-500/50"
-              />
-              <div className="text-left">
-                <p className="text-xs text-white font-medium truncate max-w-[200px]">{formData.imageName}</p>
-                <span className="text-[11px] text-gold-400">Click to change image</span>
-              </div>
-            </div>
-          ) : (
-            <div className="flex flex-col items-center justify-center py-1">
-              <Upload className="w-6 h-6 text-zinc-400 mb-1" />
-              <p className="text-xs text-zinc-300 font-medium">Click to select reference image or sketch</p>
-              <p className="text-[11px] text-zinc-500">PNG, JPG, WEBP up to 10MB</p>
-            </div>
-          )}
-        </div>
-        {errors.image && <p className="text-rose-400 text-xs mt-1">{errors.image}</p>}
       </div>
 
       {/* Trust & Guarantee note */}
