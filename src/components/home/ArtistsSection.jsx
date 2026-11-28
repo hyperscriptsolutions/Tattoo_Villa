@@ -115,7 +115,7 @@ export default function ArtistsSection({ onOpenAppointmentModal }) {
                     onClick={() => onOpenAppointmentModal(`Consultation with ${artist.name}`)}
                     className="py-3 px-5 rounded-xl bg-gold-metallic text-black font-extrabold text-xs uppercase tracking-wider hover:brightness-110 transition-all flex items-center gap-2 shadow-lg group/btn cursor-pointer"
                   >
-                    <span>Book with {artist.name.split(' ')[0]}</span>
+                    <span>Book Appointment</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1.5 transition-transform duration-300" />
                   </motion.button>
 

@@ -32,15 +32,18 @@ export default function Navbar({ onOpenAppointmentModal }) {
     setIsServicesOpen(false);
   }, [location.pathname]);
 
-  // Lock background scroll when mobile drawer is open
+  // Lock background scroll and hide conflicting floating bars when mobile drawer is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('mobile-nav-open');
     } else {
       document.body.style.overflow = '';
+      document.body.classList.remove('mobile-nav-open');
     }
     return () => {
       document.body.style.overflow = '';
+      document.body.classList.remove('mobile-nav-open');
     };
   }, [isMobileMenuOpen]);
 
@@ -132,7 +135,7 @@ export default function Navbar({ onOpenAppointmentModal }) {
 
       {/* Main Navbar */}
       <nav
-        className={`sticky top-0 z-40 transition-all duration-300 ${isScrolled
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
             ? 'bg-charcoal-950/95 backdrop-blur-md border-b border-zinc-800 shadow-xl py-2.5'
             : 'bg-charcoal-950/95 backdrop-blur-md border-b border-zinc-800/60 py-3.5'
           }`}
@@ -258,7 +261,10 @@ export default function Navbar({ onOpenAppointmentModal }) {
 
         {/* Mobile Navigation Drawer with Smooth Viewport-Bounded Scrolling */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-charcoal-950/98 backdrop-blur-xl border-b border-zinc-800 px-4 pt-3 pb-36 space-y-3 max-h-[calc(100dvh-4rem)] max-h-[calc(100vh-4rem)] overflow-y-auto overscroll-contain shadow-2xl">
+          <div 
+            className="lg:hidden bg-charcoal-950/98 backdrop-blur-xl border-b border-zinc-800 px-4 pt-3 pb-44 space-y-3 max-h-[calc(100dvh-4.25rem)] max-h-[calc(100vh-4.25rem)] overflow-y-auto overscroll-contain shadow-2xl"
+            style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 7.5rem)' }}
+          >
             <div className="flex flex-col space-y-1">
               {navLinks.map((link) => {
                 if (link.hasDropdown) {

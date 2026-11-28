@@ -82,6 +82,12 @@
   border: 1px solid rgba(197, 155, 39, 0.2);
 }
 
+/* Hide floating widgets and mobile sticky bar when mobile menu drawer is open */
+body.mobile-nav-open .sticky-mobile-bar,
+body.mobile-nav-open aside[aria-label="Contact on WhatsApp"] {
+  display: none !important;
+}
+
 /* Respect reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {

@@ -7,7 +7,7 @@ export default function StickyMobileBar({ onOpenAppointmentModal }) {
   const primaryPhone = SITE_DATA.contact.delhi.phones[0];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-charcoal-950/95 backdrop-blur-lg border-t border-zinc-800 px-3 py-2.5 shadow-2xl">
+    <div className="sticky-mobile-bar fixed bottom-0 left-0 right-0 z-40 md:hidden bg-charcoal-950/95 backdrop-blur-lg border-t border-zinc-800 px-3 py-2.5 shadow-2xl transition-all duration-200">
       <div className="grid grid-cols-3 gap-2">
         {/* Direct Call Link */}
         <a

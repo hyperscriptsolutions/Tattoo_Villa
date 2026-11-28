@@ -118,6 +118,14 @@ export default function CourseApplicationForm({
 
       setSubmittedApplication(record);
       if (onSuccessCallback) onSuccessCallback(record);
+
+      // Automatically launch WhatsApp with all course application info directly to 98181 90412
+      const waUrl = getWhatsAppLink(record);
+      try {
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      } catch (err) {
+        console.warn('Auto WhatsApp popup prevented by browser, direct button displayed', err);
+      }
     } catch (err) {
       console.error('Course application error:', err);
       setErrors(prev => ({ ...prev, form: 'Submission failed. Please call or WhatsApp our academy coordinator directly.' }));
@@ -126,22 +134,21 @@ export default function CourseApplicationForm({
     }
   };
 
-  const getWhatsAppLink = () => {
-    if (!submittedApplication) return `https://wa.me/${SITE_DATA.contact.delhi.whatsappNumber}`;
+  const getWhatsAppLink = (record = submittedApplication) => {
+    const waTarget = '919818190412';
+    if (!record) return `https://wa.me/${waTarget}`;
 
-    const text = `*New Tattoo Course Application - Tattoo Villa Academy*
-• *Application ID:* ${submittedApplication.applicationId}
-• *Applicant Name:* ${submittedApplication.name}
-• *Phone:* ${submittedApplication.phone}
-• *Email:* ${submittedApplication.email}
-• *Selected Course:* ${submittedApplication.selectedCourse}
-• *Artistic Background:* ${submittedApplication.experienceLevel}
-• *Preferred Batch:* ${submittedApplication.preferredBatch}
-${submittedApplication.notes ? `• *Questions/Notes:* ${submittedApplication.notes}` : ''}
-
+    const text = `*New Tattoo Training Course Application - Tattoo Villa Academy*
+• *Application ID:* ${record.applicationId}
+• *Applicant Name:* ${record.name}
+• *Phone:* ${record.phone}
+${record.email ? `• *Email:* ${record.email}\n` : ''}• *Selected Course:* ${record.selectedCourse}
+• *Artistic Background:* ${record.experienceLevel}
+• *Preferred Batch:* ${record.preferredBatch}
+${record.notes ? `• *Questions/Notes:* ${record.notes}\n` : ''}
 Hi Tattoo Villa Academy, I just submitted an application for your tattoo training course. Please share the complete syllabus brochure and fee structure!`;
 
-    return `https://wa.me/${SITE_DATA.contact.delhi.whatsappNumber}?text=${encodeURIComponent(text)}`;
+    return `https://wa.me/${waTarget}?text=${encodeURIComponent(text)}`;
   };
 
   if (submittedApplication) {
@@ -184,11 +191,11 @@ Hi Tattoo Villa Academy, I just submitted an application for your tattoo trainin
             href={getWhatsAppLink()}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick(SITE_DATA.contact.delhi.whatsappNumber, 'post_course_application')}
+            onClick={() => trackWhatsAppClick('919818190412', 'post_course_application')}
             className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg hover:shadow-emerald-600/30 text-sm"
           >
             <MessageSquare className="w-5 h-5" />
-            Fast-Track on WhatsApp for Fees & Brochure
+            Send Application to WhatsApp (+91 98181 90412)
           </a>
 
           <a

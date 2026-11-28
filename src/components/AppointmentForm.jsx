@@ -5,16 +5,42 @@ import { SITE_DATA } from '../data/siteData';
 import { trackAppointmentSubmit, trackAppointmentConfirmed, trackWhatsAppClick, getStoredUtmParameters } from '../utils/analytics';
 
 export default function AppointmentForm({ 
-  initialCategory = "Custom Tattoos", 
+  initialCategory = "Custom Designs & Cover-ups", 
   onSuccessCallback,
   compact = false 
 }) {
+  const categories = [
+    "Portrait Tattoos",
+    "Realism Tattoos",
+    "Animal & Wildlife Tattoos",
+    "Religious & Spiritual Tattoos",
+    "Calligraphy & Script Tattoos",
+    "Minimal & Fine-Line Tattoos",
+    "Full / Half Sleeve Projects",
+    "Custom Designs & Cover-ups",
+    "Tattoo Training Institute Inquiry",
+    "Other"
+  ];
+
+  const getMatchedCategory = (cat) => {
+    if (!cat) return "Custom Designs & Cover-ups";
+    const found = categories.find(c => c.toLowerCase() === cat.toLowerCase());
+    if (found) return found;
+    if (cat.toLowerCase().includes('custom') || cat.toLowerCase().includes('cover')) {
+      return "Custom Designs & Cover-ups";
+    }
+    if (cat.toLowerCase().includes('sleeve')) {
+      return "Full / Half Sleeve Projects";
+    }
+    return "Other";
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     location: 'Delhi Studio',
-    tattooType: initialCategory || 'Custom Tattoos',
+    tattooType: getMatchedCategory(initialCategory),
     date: '',
     placement: '',
     description: '',
@@ -26,18 +52,6 @@ export default function AppointmentForm({
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedBooking, setSubmittedBooking] = useState(null);
-
-  const categories = [
-    "Portrait Tattoos",
-    "Realism Tattoos",
-    "Animal & Wildlife Tattoos",
-    "Religious & Spiritual Tattoos",
-    "Calligraphy & Script Tattoos",
-    "Minimal & Fine-Line Tattoos",
-    "Full / Half Sleeve Projects",
-    "Custom Tattoos & Cover-ups",
-    "Tattoo Training Institute Inquiry"
-  ];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -85,11 +99,6 @@ export default function AppointmentForm({
       newErrors.phone = 'Please enter a valid mobile number (e.g. +91 98181 90412 or +61 478 311 912).';
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
-      newErrors.email = 'Please enter a valid email address.';
-    }
-
     if (!formData.date) {
       newErrors.date = 'Please select your preferred consultation date.';
     } else {
@@ -99,10 +108,6 @@ export default function AppointmentForm({
       if (selectedDate < today) {
         newErrors.date = 'Date cannot be in the past.';
       }
-    }
-
-    if (!formData.description.trim() || formData.description.trim().length < 5) {
-      newErrors.description = 'Please describe your tattoo idea or placement area (min 5 characters).';
     }
 
     setErrors(newErrors);
@@ -151,6 +156,14 @@ export default function AppointmentForm({
 
       setSubmittedBooking(bookingRecord);
       if (onSuccessCallback) onSuccessCallback(bookingRecord);
+
+      // Automatically launch WhatsApp with all form details directly to 98181 90412
+      const waUrl = getWhatsAppDirectLink(bookingRecord);
+      try {
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      } catch (err) {
+        console.warn('Auto WhatsApp redirect prevented by browser pop-up blocker', err);
+      }
     } catch (err) {
       console.error('Booking submission error:', err);
       setErrors(prev => ({ ...prev, form: 'Submission failed. Please call or WhatsApp us directly.' }));
@@ -159,23 +172,18 @@ export default function AppointmentForm({
     }
   };
 
-  const getWhatsAppDirectLink = () => {
-    if (!submittedBooking) return `https://wa.me/${SITE_DATA.contact.delhi.whatsappNumber}`;
+  const getWhatsAppDirectLink = (record = submittedBooking) => {
+    const waTarget = '919818190412';
+    if (!record) return `https://wa.me/${waTarget}`;
     
-    const isAustralia = submittedBooking.location === 'Australia Studio';
-    const waTarget = isAustralia ? '61478311912' : SITE_DATA.contact.delhi.whatsappNumber;
-    const studioTitle = isAustralia ? 'Tattoo Villa Australia (Melbourne)' : 'Tattoo Villa Delhi';
-
-    const text = `*New Tattoo Consultation Inquiry - ${studioTitle}*
-• *Booking ID:* ${submittedBooking.bookingId}
-• *Name:* ${submittedBooking.name}
-• *Phone:* ${submittedBooking.phone}
-• *Location:* ${submittedBooking.location}
-• *Category:* ${submittedBooking.tattooType}
-• *Preferred Date:* ${submittedBooking.date}
-• *Idea/Placement:* ${submittedBooking.description}
-${submittedBooking.imageName ? `• *Reference Attached:* ${submittedBooking.imageName}` : ''}
-
+    const text = `*New Tattoo Consultation Inquiry - Tattoo Villa*
+• *Booking ID:* ${record.bookingId}
+• *Name:* ${record.name}
+• *Phone:* ${record.phone}
+• *Studio Location:* ${record.location}
+• *Tattoo Category:* ${record.tattooType}
+• *Preferred Date:* ${record.date}
+${record.placement ? `• *Placement Area:* ${record.placement}\n` : ''}${record.description ? `• *Tattoo Idea & Details:* ${record.description}\n` : ''}${record.imageName ? `• *Reference Attached:* ${record.imageName}\n` : ''}
 Hi Tattoo Villa, I just scheduled an appointment request on your website. Please confirm artist availability!`;
 
     return `https://wa.me/${waTarget}?text=${encodeURIComponent(text)}`;
@@ -228,11 +236,11 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
             href={getWhatsAppDirectLink()}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick(isAustralia ? '61478311912' : SITE_DATA.contact.delhi.whatsappNumber, 'post_appointment_confirmation')}
+            onClick={() => trackWhatsAppClick('919818190412', 'post_appointment_confirmation')}
             className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg hover:shadow-emerald-600/30 text-sm"
           >
             <MessageSquare className="w-5 h-5" />
-            Fast-Track & Chat on WhatsApp
+            Send Details to WhatsApp (+91 98181 90412)
           </a>
 
           <a
@@ -297,25 +305,8 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
         </div>
       </div>
 
-      {/* Email & Studio Location */}
+      {/* Studio Location & Tattoo Category */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
-            Email Address <span className="text-gold-400">*</span>
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            placeholder="e.g. rohit@gmail.com"
-            className={`w-full px-4 py-3 rounded-xl bg-charcoal-900 border ${
-              errors.email ? 'border-rose-500' : 'border-zinc-700/80 focus:border-gold-500'
-            } text-white placeholder-zinc-500 text-sm outline-none transition-colors`}
-          />
-          {errors.email && <p className="text-rose-400 text-xs mt-1">{errors.email}</p>}
-        </div>
-
         <div>
           <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
             Studio Location <span className="text-gold-400">*</span>
@@ -330,10 +321,7 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
             <option value="Australia Studio">🇦🇺 Australia (Melbourne VIC)</option>
           </select>
         </div>
-      </div>
 
-      {/* Tattoo Category & Preferred Date */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
             Tattoo Category <span className="text-gold-400">*</span>
@@ -351,7 +339,10 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
             ))}
           </select>
         </div>
+      </div>
 
+      {/* Preferred Date & Placement Area */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
             Preferred Date <span className="text-gold-400">*</span>
@@ -370,39 +361,35 @@ Hi Tattoo Villa, I just scheduled an appointment request on your website. Please
           </div>
           {errors.date && <p className="text-rose-400 text-xs mt-1">{errors.date}</p>}
         </div>
+
+        <div>
+          <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
+            Placement Area (Optional)
+          </label>
+          <input
+            type="text"
+            name="placement"
+            value={formData.placement}
+            onChange={handleInputChange}
+            placeholder="e.g. Forearm, Collarbone, Back, Calf"
+            className="w-full px-4 py-3 rounded-xl bg-charcoal-900 border border-zinc-700/80 focus:border-gold-500 text-white placeholder-zinc-500 text-sm outline-none transition-colors"
+          />
+        </div>
       </div>
 
-      {/* Placement Area */}
+      {/* Tattoo Description (Optional) */}
       <div>
         <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
-          Placement Area (Optional)
-        </label>
-        <input
-          type="text"
-          name="placement"
-          value={formData.placement}
-          onChange={handleInputChange}
-          placeholder="e.g. Forearm, Collarbone, Back, Calf"
-          className="w-full px-4 py-3 rounded-xl bg-charcoal-900 border border-zinc-700/80 focus:border-gold-500 text-white placeholder-zinc-500 text-sm outline-none transition-colors"
-        />
-      </div>
-
-      {/* Tattoo Description */}
-      <div>
-        <label className="block text-xs uppercase tracking-wider text-zinc-300 font-semibold mb-1.5">
-          Tattoo Idea & Details <span className="text-gold-400">*</span>
+          Tattoo Idea & Details (Optional)
         </label>
         <textarea
           name="description"
           rows={compact ? 2 : 3}
           value={formData.description}
           onChange={handleInputChange}
-          placeholder="Describe your design vision, approximate dimensions, or whether this is a cover-up..."
-          className={`w-full px-4 py-3 rounded-xl bg-charcoal-900 border ${
-            errors.description ? 'border-rose-500' : 'border-zinc-700/80 focus:border-gold-500'
-          } text-white placeholder-zinc-500 text-sm outline-none transition-colors resize-none`}
+          placeholder="Describe your design vision, approximate dimensions, or whether this is a cover-up (optional)..."
+          className="w-full px-4 py-3 rounded-xl bg-charcoal-900 border border-zinc-700/80 focus:border-gold-500 text-white placeholder-zinc-500 text-sm outline-none transition-colors resize-none"
         ></textarea>
-        {errors.description && <p className="text-rose-400 text-xs mt-1">{errors.description}</p>}
       </div>
 
       {/* Reference Image Upload */}

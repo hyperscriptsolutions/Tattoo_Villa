@@ -109,7 +109,7 @@ export default function ArtistsPage({ onOpenAppointmentModal, onOpenLightbox }) 
                     className="py-3.5 px-8 rounded-xl bg-gold-metallic text-black font-extrabold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all flex items-center gap-2 cursor-pointer"
                   >
                     <Calendar className="w-4 h-4" />
-                    <span>Book Session with {artist.name.split(' ')[0]}</span>
+                    <span>Book Appointment</span>
                   </button>
                 </div>
               </div>
